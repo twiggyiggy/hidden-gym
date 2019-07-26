@@ -6,7 +6,7 @@ const router = express.Router();
 /* GET users listing. */
 router.get('/', (req, res, next) => {
   // how to connest to hbs
-  res.render('parks');
+  res.render('parksList');
 });
 
 module.exports = router;
