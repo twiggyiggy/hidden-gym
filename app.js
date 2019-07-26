@@ -12,6 +12,7 @@ const MongoStore = require('connect-mongo')(session);
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
+const parksRouter = require('./routes/parks');
 
 const mongoose = require('mongoose');
 
@@ -57,9 +58,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/auth', authRouter);
-// -- 404 and error handler
+app.use('/parks', parksRouter);
 
-// NOTE: requires a views/not-found.ejs template
+// -- 404 and error handler
 app.use((req, res, next) => {
   res.status(404);
   res.render('not-found');
