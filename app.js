@@ -29,7 +29,7 @@ app.use(session({
     ttl: 24 * 60 * 60 // 1 day
   }),
   secret: 'some-string',
-  resave: true,
+  resave: true, // how we can see each user's session id/cookie id when Login post in auth.js runs
   httpOnly: true,
   saveUninitialized: true,
   cookie: {
