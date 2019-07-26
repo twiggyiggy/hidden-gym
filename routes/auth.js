@@ -53,7 +53,7 @@ router.post('/login', async (req, res, next) => {
 
     if (bcrypt.compareSync(password, user.password)) {
       req.session.currentUser = user;
-      res.redirect('/');
+      res.redirect('/parks');
     } else {
       res.redirect('/auth/login');
     }
@@ -65,7 +65,7 @@ router.post('/login', async (req, res, next) => {
 router.post('/logout', (req, res, next) => {
   if (req.session.currentUser) {
     delete req.session.currentUser; // if curentUser exists, delete their key, redirect to login // if currentUser doesnt exist, res.redirect to homepage
-    return res.redirect('/auth/login');
+    return res.redirect('/');
   }
   res.redirect('/');
 });

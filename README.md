@@ -13,6 +13,7 @@ A service that allows users to find a calisthenics park in Barcelona, view detai
 - **login** - As a user I want to be able to log in on the webpage so that I can get back to my account
 - **logout** - As a user I want to be able to log out from the webpage so that I can make sure no one will access my account
 - **park list** - As a user I want to see all the parks in the area so that I can choose which ones I want to work out at
+- **park filter** - As a user I want to be able to easily filter the parks by neighborhood
 - **park create** - As a user I want to create a new park so that I can contirbute to the official list
 - **park detail** - As a user I want to see the park details and so that I can learn more about it
 - **park edit** - As a user I want to update park details so that I can keep them up to date
