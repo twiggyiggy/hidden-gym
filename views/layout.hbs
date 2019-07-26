@@ -5,8 +5,41 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
   <body>
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+      <nav>
+        <ul>
+          {{!-- this is calling to app.js -> app.locals.currentUser = req.session.currentUser --}}
+          {{#unless currentUser}}
+          <li>
+            <a href="/auth/signup">I'M NEW</a>
+          </li>
+          <li>
+            <a href="/auth/login">LOGIN</a>
+          </li>
+          {{/unless}}
+          {{#if currentUser}}
+          <li>
+            <form action="/auth/logout" method="POST">
+              <button type="submit">Logout</button>
+            </form>
+          </li>
+          <li>
+            <a href="/user/parks">PARKS</a>
+          </li>
+          {{/if}}
+
     {{{body}}}
   </body>
 </html>
