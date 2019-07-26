@@ -20,11 +20,11 @@ const parkSchema = new Schema({
     unique: false
   },
   averageRating: {
-    type: Number,
+    type: Number, // calculateAverageRating();
     required: false,
     unique: false
   },
-  image: {
+  imageUrl: {
     type: String,
     required: true,
     unique: false
