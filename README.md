@@ -110,7 +110,6 @@ upvotes: number
 totalVotes: number
 averageRating: number
 
-
 ``` 
 
 ## Links
