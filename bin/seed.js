@@ -47,10 +47,10 @@ const parks = [
 //   console.log(error);
 // });
 async function addParks (parks) {
-  // await Park.create(parks);
-  for (let i = 0; i < parks.length; i++) {
-    await Park.create({ address: parks[i].address, upvotes: parks[i].upvotes, totalVotes: parks[i].totalVotes, averageRating: parks[i].averageRating, imageUrl: parks[i].imageUrl, description: parks[i].description, creator: parks[i].creator });
-  }
+  await Park.create(parks);
+  // for (let i = 0; i < parks.length; i++) {
+  //   await Park.create({ address: parks[i].address, upvotes: parks[i].upvotes, totalVotes: parks[i].totalVotes, averageRating: parks[i].averageRating, imageUrl: parks[i].imageUrl, description: parks[i].description, creator: parks[i].creator });
+  // }
   mongoose.disconnect();
 };
 
