@@ -13,7 +13,7 @@ const router = express.Router();
 // SIGNUP --- --- --- --- --- ---
 router.get('/signup', (req, res, next) => {
   if (req.session.currentUser) { // route protection: If user is logged-in, won't let him see signup page - redirect him to index instead (should be parks!)
-    return res.redirect('/parks'); // if user is logged-in, redirect him back to parks list page
+    return res.redirect('/parks'); // if user is logged-in, redirect him back to parks list page.
   }
   res.render('signup'); // if user is not logged in, display signup page.
 });

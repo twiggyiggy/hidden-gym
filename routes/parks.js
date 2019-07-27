@@ -4,14 +4,16 @@ const express = require('express');
 const router = express.Router();
 const Park = require('../models/Park');
 
-/* GET users listing. */
-router.get('/', (req, res, next) => {
-  // how to connect to hbs
-  res.render('parksList');
+/* GET create-park */
+router.get('/create', (req, res, next) => {
+  // console.log('this is the router to create a park!');
+  res.render('createPark');
 });
 
-router.get('/create', (req, res, next) => {
-  res.render('createPark');
+/* GET users listing. */
+router.get('/', (req, res, next) => {
+  // console.log('this is the router to park list!');
+  res.render('parksList');
 });
 
 module.exports = router;
