@@ -29,7 +29,7 @@ const parkSchema = new Schema({
     required: true,
     unique: false
   },
-  description: {
+  additionalInfo: {
     type: String,
     required: false,
     unique: false

@@ -17,7 +17,7 @@ const parks = [
     totalVotes: 7,
     averageRating: 6.5,
     imageUrl: 'https://living-in-stuttgart.com/wp-content/uploads/2017/08/calisthenics-in-Stuttgart-Degerloch.jpg',
-    description: 'Full of topless beefy dudes and pickpockets. Stay clear.',
+    additionalInfo: 'Full of topless beefy dudes and pickpockets. Stay clear.',
     creator: 'CodyKo'
   },
   {
@@ -26,7 +26,7 @@ const parks = [
     totalVotes: 10,
     averageRating: 9,
     imageUrl: 'https://calisthenics-parks.com/attachments/Bx9p40hiRORZ7U2bMrYc2SAXzZpVTdcKTD46JvD8_1000.jpg',
-    description: 'Banging park, but busy on weekends.',
+    additionalInfo: 'Banging park, but busy on weekends.',
     creator: 'Jesus'
   },
   {
@@ -35,7 +35,7 @@ const parks = [
     totalVotes: 11,
     averageRating: 0.8,
     imageUrl: 'https://kengurupro.eu/wp-content/uploads/2019/02/001-8.jpg',
-    description: 'Literally everything is broken',
+    additionalInfo: 'Literally everything is broken',
     creator: 'Jorge'
   }
 ];
@@ -49,7 +49,7 @@ const parks = [
 async function addParks (parks) {
   await Park.create(parks);
   // for (let i = 0; i < parks.length; i++) {
-  //   await Park.create({ address: parks[i].address, upvotes: parks[i].upvotes, totalVotes: parks[i].totalVotes, averageRating: parks[i].averageRating, imageUrl: parks[i].imageUrl, description: parks[i].description, creator: parks[i].creator });
+  //   await Park.create({ address: parks[i].address, upvotes: parks[i].upvotes, totalVotes: parks[i].totalVotes, averageRating: parks[i].averageRating, imageUrl: parks[i].imageUrl, additionalInfo: parks[i].description, creator: parks[i].creator });
   // }
   mongoose.disconnect();
 };

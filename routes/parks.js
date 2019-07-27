@@ -10,8 +10,8 @@ router.get('/', (req, res, next) => {
   res.render('parksList');
 });
 
-// router.get('/create', (req, res, next) => {
-//   res.render('parkCreate');
-// });
+router.get('/create', (req, res, next) => {
+  res.render('createPark');
+});
 
 module.exports = router;
