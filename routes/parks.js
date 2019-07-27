@@ -3,32 +3,36 @@
 const express = require('express');
 const router = express.Router();
 const Park = require('../models/Park.js');
-
+// -------------------
 /* GET create-park */
 router.get('/create', (req, res, next) => {
   // console.log('this is the router to create a park!');
   res.render('createPark');
 });
-// here will be -----
-/* POST  create-park */
+
 // -------------------
-
-/* GET parksList. */
-// router.get('/details', async (req, res, next) => {
-//   try {
-//     const address = req.query.address;
-//     const parkAddress = await Park.findOne({ address });
-//     res.render('parksList', parkAddress);
-//   } catch (error) {
-//     next(error);
-//   }
-// });
-
+/* POST  create-park */
+router.post('/create', async (req, res, next) => {
+  const { address, imageUrl, additionalInformation } = req.body;
+  try {
+    const park = await Park.create({
+      address,
+      imageUrl,
+      additionalInformation
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+// -------------------
+/* GET parksList */
 router.get('/', async (req, res, next) => {
   const parks = await Park.find();
   res.render('parksList', { parks });
 });
 
+// -------------------
+/* POST parksList */
 router.get('/:id/details', async (req, res, next) => {
   try {
     const id = req.params.id;
