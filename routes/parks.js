@@ -42,6 +42,27 @@ router.get('/:id/details', async (req, res, next) => {
     next(error);
   }
 });
+/* GET createPark */
+router.get('/:id/details/create', async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const park = await Park.findById(id);
+    res.render('createPark', park);
+  } catch (error) {
+    next(error);
+  }
+});
+/* POST createPark */
+router.post('/:id/details/create', async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const park = req.body;
+    await Park.findByIdAndUpdate(id, park);
+    res.redirect(`/parks/${id}/details`);
+  } catch (error) {
+    next(error);
+  }
+});
 
 module.exports = router;
 // ---------------------
