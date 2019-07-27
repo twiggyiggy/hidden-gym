@@ -47,16 +47,24 @@ router.post('/signup', async (req, res, next) => {
 // LOGIN --- --- --- --- --- ---
 router.get('/login', (req, res, next) => {
   if (req.session.currentUser) {
-    return res.redirect('/');
+    return res.redirect('/parks'); // if user already logged in, redirect back to parks page
   }
   res.render('login');
 });
 
 router.post('/login', async (req, res, next) => {
+  if (req.session.currentUser) { // login route protection if user logged in already (advanced - no need to test)
+    return res.redirect('/parks');
+  }
   const { username, password } = req.body;
+  if (!username || !password) { // added backend form validation - to test.
+    return res.redirect('/auth/login');
+  }
   try {
     const user = await User.findOne({ username });
-
+    if (!user) { // login route "does user exist?" protection - if user not registered, can't log in
+      return res.redirect('/auth/login'); // return is so it doesn't execute any more code
+    }
     if (bcrypt.compareSync(password, user.password)) {
       req.session.currentUser = user;
       res.redirect('/parks');
@@ -67,6 +75,7 @@ router.post('/login', async (req, res, next) => {
     next(error);
   }
 });
+
 // LOGOUT  --- --- --- --- --- ---
 router.post('/logout', (req, res, next) => {
   if (req.session.currentUser) {
