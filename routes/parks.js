@@ -23,10 +23,19 @@ router.post('/create', async (req, res, next) => {
   }
 });
 
-/* GET users listing. */
-router.get('/', (req, res, next) => {
-  // console.log('this is the router to park list!');
-  res.render('parksList');
+router.get('/', async (req, res, next) => {
+  const parks = await Park.find();
+  res.render('parksList', { parks });
+});
+
+router.get('/:id/details', async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const park = await Park.findById(id);
+    res.render('parksList', park);
+  } catch (error) {
+    next(error);
+  }
 });
 
 module.exports = router;

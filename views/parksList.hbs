@@ -1,4 +1,14 @@
 <h3>PARKS:</h2>
-<h2>Welcome {{currentUser.username}}</h2>
+​
+<h2>Welcome {{currentUser.username}} !!!</h2>
 <p>Here you will find a list of parks available in Barcelona</p>
-<a href="/parks/create">Add a park</a>
+<ul>
+    {{#each parks}}
+        <li>
+            <a href="/parks/{{_id}}/details">
+                <p>{{address}}</p>
+                <p>{{creator}}</p>
+            </a>
+        </li>
+    {{/each}}
+</ul>
