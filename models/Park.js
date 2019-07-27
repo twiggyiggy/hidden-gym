@@ -36,7 +36,7 @@ const parkSchema = new Schema({
   },
   creator: {
     type: String,
-    required: true,
+    required: false,
     unique: false
   }
 }, {
