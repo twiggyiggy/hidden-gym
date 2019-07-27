@@ -19,8 +19,14 @@ router.get('/signup', (req, res, next) => {
 });
 
 router.post('/signup', async (req, res, next) => {
+  if (req.session.currentUser) { // route protection: although the user doesn't see a post page, still need to protect the route (adnvanced - smb can use a program to post req.body without even seeing our form)
+    return res.redirect('/parks');
+  }
   try {
     const { username, password } = req.body;
+    if (!username || !password) {
+      return res.redirect('/auth/signup');
+    }
 
     const salt = bcrypt.genSaltSync(saltRounds);
     const hashedPassword = bcrypt.hashSync(password, salt);
