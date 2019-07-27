@@ -12,10 +12,10 @@ const router = express.Router();
 /*  --- --- --- --- --- --- 5 routas principales --- --- --- --- --- --- */
 // SIGNUP --- --- --- --- --- ---
 router.get('/signup', (req, res, next) => {
-  if (req.session.currentUser) {
-    return res.redirect('/');
+  if (req.session.currentUser) { // route protection: If user is logged-in, won't let him see signup page - redirect him to index instead (should be parks!)
+    return res.redirect('/parks'); // if user is logged-in, redirect him back to parks list page
   }
-  res.render('signup');
+  res.render('signup'); // if user is not logged in, display signup page.
 });
 
 router.post('/signup', async (req, res, next) => {
@@ -64,10 +64,10 @@ router.post('/login', async (req, res, next) => {
 // LOGOUT  --- --- --- --- --- ---
 router.post('/logout', (req, res, next) => {
   if (req.session.currentUser) {
-    delete req.session.currentUser; // if curentUser exists, delete their key, redirect to login // if currentUser doesnt exist, res.redirect to homepage
+    delete req.session.currentUser; // if curentUser exists, delete their key, redirect to login
     return res.redirect('/');
   }
-  res.redirect('/');
+  res.redirect('/'); // if currentUser doesnt exist, res.redirect to homepage
 });
 
 module.exports = router;
