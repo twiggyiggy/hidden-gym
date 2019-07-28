@@ -11,12 +11,13 @@
         <ul>
           {{#unless currentUser}}
           <li>
-            <a href="/auth/signup">I'M NEW</a>
+            <a href="/auth/signup">SIGNUP</a>
           </li>
           <li>
             <a href="/auth/login">LOGIN</a>
           </li>
           {{/unless}}
+          
           {{#if currentUser}}
           <li>
             <form action="/auth/logout" method="POST">
@@ -24,7 +25,10 @@
             </form>
           </li>
           <li>
-            <a href="/gyms/create"></a>
+            <a href="/gyms">Hidden Gyms</a>
+          </li>
+          <li>
+            <a href="/gyms/create">Add A Gym</a>
           </li>
           {{/if}}
     {{{body}}}
