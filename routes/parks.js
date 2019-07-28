@@ -13,12 +13,12 @@ router.get('/create', (req, res, next) => {
 // -------------------
 /* POST  create-park */
 router.post('/create', async (req, res, next) => {
-  const { address, imageUrl, additionalInformation } = req.body;
+  const { address, imageUrl, additionalInfo } = req.body;
   try {
     const park = await Park.create({
       address,
       imageUrl,
-      additionalInformation
+      additionalInfo
     });
     res.redirect('/parks');
   } catch (error) {
@@ -38,7 +38,7 @@ router.get('/:id/details', async (req, res, next) => {
   try {
     const id = req.params.id;
     const park = await Park.findById(id);
-    res.render('parksList', park);
+    res.render('parkDetails', park);
   } catch (error) {
     next(error);
   }
