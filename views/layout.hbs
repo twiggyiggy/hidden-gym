@@ -7,32 +7,37 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
-      <nav>
-        <ul>
-          {{#unless currentUser}}
+      <div>
+      {{#unless currentUser}}
+        <div>
           <h1>Hidden Gym</h1>
           <p>Hidden Gym is the simplest way to find outdoor gyms in Barcelona</p>
-          <li>
+        </div>
+        <div>
+          <div>
             <a href="/auth/signup">SIGNUP</a>
-          </li>
-          <li>
+          </div>
+          <div>
             <a href="/auth/login">LOGIN</a>
-          </li>
-          {{/unless}}
-
-          {{#if currentUser}}
-          <li>
-            <form action="/auth/logout" method="POST">
-              <button type="submit">Logout</button>
-            </form>
-          </li>
-          <li>
-            <a href="/gyms">Hidden Gyms</a>
-          </li>
-          <li>
-            <a href="/gyms/create">Add A Gym</a>
-          </li>
-          {{/if}}
+          </div>
+        </div>
+      {{/unless}}
+      </div>
+    {{#if currentUser}}
+      <ul>
+        <li>
+          <form action="/auth/logout" method="POST">
+            <button type="submit">Logout</button>
+          </form>
+        </li>
+        <li>
+          <a href="/gyms">Hidden Gyms</a>
+        </li>
+        <li>
+          <a href="/gyms/create">Add A Gym</a>
+        </li>
+      </ul>
+    {{/if}}
     {{{body}}}
   </body>
 </html>

@@ -12,14 +12,14 @@ const router = express.Router();
 /*  --- --- --- --- --- --- 5 routas principales --- --- --- --- --- --- */
 // SIGNUP --- --- --- --- --- ---
 router.get('/signup', (req, res, next) => {
-  if (req.session.currentUser) { // route protection: If user is logged-in, won't let him see signup page - redirect him to index instead (should be gyms!)
-    return res.redirect('/gyms'); // if user is logged-in, redirect him back to gyms list page.
+  if (req.session.currentUser) {
+    return res.redirect('/gyms');
   }
-  res.render('signup'); // if user is not logged in, display signup page.
+  res.render('signup');
 });
 
 router.post('/signup', async (req, res, next) => {
-  if (req.session.currentUser) { // route protection: although the user doesn't see a post page, still need to protect the route (adnvanced - smb can use a program to post req.body without even seeing our form)
+  if (req.session.currentUser) {
     return res.redirect('/gyms');
   }
   try {
@@ -47,23 +47,23 @@ router.post('/signup', async (req, res, next) => {
 // LOGIN --- --- --- --- --- ---
 router.get('/login', (req, res, next) => {
   if (req.session.currentUser) {
-    return res.redirect('/gyms'); // if user already logged in, redirect back to gyms page
+    return res.redirect('/gyms');
   }
   res.render('login');
 });
 
 router.post('/login', async (req, res, next) => {
-  if (req.session.currentUser) { // login route protection if user logged in already (advanced - no need to test)
+  if (req.session.currentUser) {
     return res.redirect('/gyms');
   }
   const { username, password } = req.body;
-  if (!username || !password) { // added backend form validation - to test.
+  if (!username || !password) {
     return res.redirect('/auth/login');
   }
   try {
     const user = await User.findOne({ username });
-    if (!user) { // login route "does user exist?" protection - if user not registered, can't log in
-      return res.redirect('/auth/login'); // return is so it doesn't execute any more code
+    if (!user) {
+      return res.redirect('/auth/login');
     }
     if (bcrypt.compareSync(password, user.password)) {
       req.session.currentUser = user;
@@ -79,10 +79,10 @@ router.post('/login', async (req, res, next) => {
 // LOGOUT  --- --- --- --- --- ---
 router.post('/logout', (req, res, next) => {
   if (req.session.currentUser) {
-    delete req.session.currentUser; // if curentUser exists, delete their key, redirect to login
+    delete req.session.currentUser;
     return res.redirect('/');
   }
-  res.redirect('/'); // if currentUser doesnt exist, res.redirect to homepage
+  res.redirect('/');
 });
 
 module.exports = router;
