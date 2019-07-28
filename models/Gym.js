@@ -3,7 +3,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const parkSchema = new Schema({
+const gymSchema = new Schema({
   address: {
     type: String,
     required: true,
@@ -43,6 +43,6 @@ const parkSchema = new Schema({
   timestamps: true
 });
 
-const Park = mongoose.model('Park', parkSchema);
+const Gym = mongoose.model('Gym', gymSchema);
 
-module.exports = Park;
+module.exports = Gym;

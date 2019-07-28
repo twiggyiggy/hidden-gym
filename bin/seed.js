@@ -1,6 +1,6 @@
 'use strict';
 
-const Park = require('../models/Park');
+const Gym = require('../models/Gym');
 
 const mongoose = require('mongoose');
 
@@ -10,7 +10,7 @@ mongoose.connect('mongodb://localhost/hidden-gym', {
   reconnectTries: Number.MAX_VALUE
 });
 
-const parks = [
+const gyms = [
   {
     address: 'Barceloneta Beach',
     upvotes: 4,
@@ -26,7 +26,7 @@ const parks = [
     totalVotes: 10,
     averageRating: 9,
     imageUrl: 'https://calisthenics-parks.com/attachments/Bx9p40hiRORZ7U2bMrYc2SAXzZpVTdcKTD46JvD8_1000.jpg',
-    additionalInfo: 'Banging park, but busy on weekends.',
+    additionalInfo: 'Banging gym, but busy on weekends.',
     creator: 'Jesus'
   },
   {
@@ -39,19 +39,10 @@ const parks = [
     creator: 'Jorge'
   }
 ];
-// what's happening below?
-// Park.create(seeds).then((parks) => {
-//   console.log(parks);
-//   mongoose.connection.close();
-// }).catch((error) => {
-//   console.log(error);
-// });
-async function addParks (parks) {
-  await Park.create(parks);
-  // for (let i = 0; i < parks.length; i++) {
-  //   await Park.create({ address: parks[i].address, upvotes: parks[i].upvotes, totalVotes: parks[i].totalVotes, averageRating: parks[i].averageRating, imageUrl: parks[i].imageUrl, additionalInfo: parks[i].description, creator: parks[i].creator });
-  // }
+
+async function addGyms (gyms) {
+  await Gym.create(gyms);
   mongoose.disconnect();
 };
 
-addParks(parks);
+addGyms(gyms);

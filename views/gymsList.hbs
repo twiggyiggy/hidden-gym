@@ -1,11 +1,11 @@
-<h3>PARKS:</h2>
+<h3>GYMS:</h2>
 ​
 <h2>Welcome {{currentUser.username}} !!!</h2>
-<p>Here you will find a list of parks available in Barcelona</p>
+<p>Here you will find a list of gyms available in Barcelona</p>
 <ul>
-    {{#each parks}}
+    {{#each gyms}}
         <li>
-            <a href="/parks/{{_id}}/details">
+            <a href="/gyms/{{_id}}/details">
                 <p>{{address}}</p>
                 <p>{{creator}}</p>
                 
@@ -15,5 +15,5 @@
     
 </ul>
 
-<a href="/parks/create">Create</a>
+<a href="/gyms/create">Create</a>
 
