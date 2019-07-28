@@ -2,65 +2,65 @@
 
 const express = require('express');
 const router = express.Router();
-const Park = require('../models/Park.js');
+const Gym = require('../models/Gym.js');
 // -------------------
-/* GET create-park */
+/* GET create-gym */
 router.get('/create', (req, res, next) => {
-  // console.log('this is the router to create a park!');
-  res.render('createPark');
+  // console.log('this is the router to create a gym!');
+  res.render('createGym');
 });
 
 // -------------------
-/* POST  create-park */
+/* POST  create-gym */
 router.post('/create', async (req, res, next) => {
   const { address, imageUrl, additionalInfo } = req.body;
   try {
-    const park = await Park.create({
+    const gym = await Gym.create({
       address,
       imageUrl,
       additionalInfo
     });
-    res.redirect('/parks');
+    res.redirect('/gyms');
   } catch (error) {
     next(error);
   }
 });
 // -------------------
-/* GET parksList */
+/* GET gymsList */
 router.get('/', async (req, res, next) => {
-  const parks = await Park.find();
-  res.render('parksList', { parks });
+  const gyms = await Gym.find();
+  res.render('gymsList', { gyms });
 });
 
 // -------------------
-/* Get park Details */
+/* Get gym Details */
 router.get('/:id/details', async (req, res, next) => {
   try {
     const id = req.params.id;
-    const park = await Park.findById(id);
-    res.render('parkDetails', park);
+    const gym = await Gym.findById(id);
+    res.render('gymDetails', gym);
   } catch (error) {
     next(error);
   }
 });
 
-// /* GET update park */
+// /* GET update gym */
 // router.get('/:id/details/edit', async (req, res, next) => {
 //   try {
 //     const id = req.params.id;
-//     const park = await Park.findById(id);
-//     res.render('createPark', park);
+//     const gym = await Gym.findById(id);
+//     res.render('creategym', gym);
 //   } catch (error) {
 //     next(error);
 //   }
 // });
-// /* POST update park */
+// /* POST update gym */
 // router.post('/:id/details/edit', async (req, res, next) => {
 //   try {
 //     const id = req.params.id;
-//     const park = req.body;
-//     await Park.findByIdAndUpdate(id, park);
-//     res.redirect(`/parks/${id}/details`);
+//     const gym = req.body;
+//     await Gym.findByIdAndUpdate(id, gym);
+//     res.redirect(`/gyms/${id}/details`);
 //   } catch (error) {
 //     next(error);
 //   }

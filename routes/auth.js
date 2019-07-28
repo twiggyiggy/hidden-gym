@@ -12,15 +12,15 @@ const router = express.Router();
 /*  --- --- --- --- --- --- 5 routas principales --- --- --- --- --- --- */
 // SIGNUP --- --- --- --- --- ---
 router.get('/signup', (req, res, next) => {
-  if (req.session.currentUser) { // route protection: If user is logged-in, won't let him see signup page - redirect him to index instead (should be parks!)
-    return res.redirect('/parks'); // if user is logged-in, redirect him back to parks list page.
+  if (req.session.currentUser) { // route protection: If user is logged-in, won't let him see signup page - redirect him to index instead (should be gyms!)
+    return res.redirect('/gyms'); // if user is logged-in, redirect him back to gyms list page.
   }
   res.render('signup'); // if user is not logged in, display signup page.
 });
 
 router.post('/signup', async (req, res, next) => {
   if (req.session.currentUser) { // route protection: although the user doesn't see a post page, still need to protect the route (adnvanced - smb can use a program to post req.body without even seeing our form)
-    return res.redirect('/parks');
+    return res.redirect('/gyms');
   }
   try {
     const { username, password } = req.body;
@@ -38,7 +38,7 @@ router.post('/signup', async (req, res, next) => {
 
     req.session.currentUser = newUser;
 
-    res.redirect('/');
+    res.redirect('/gymsList');
   } catch (error) {
     next(error);
   }
@@ -47,14 +47,14 @@ router.post('/signup', async (req, res, next) => {
 // LOGIN --- --- --- --- --- ---
 router.get('/login', (req, res, next) => {
   if (req.session.currentUser) {
-    return res.redirect('/parks'); // if user already logged in, redirect back to parks page
+    return res.redirect('/gyms'); // if user already logged in, redirect back to gyms page
   }
   res.render('login');
 });
 
 router.post('/login', async (req, res, next) => {
   if (req.session.currentUser) { // login route protection if user logged in already (advanced - no need to test)
-    return res.redirect('/parks');
+    return res.redirect('/gyms');
   }
   const { username, password } = req.body;
   if (!username || !password) { // added backend form validation - to test.
@@ -67,7 +67,7 @@ router.post('/login', async (req, res, next) => {
     }
     if (bcrypt.compareSync(password, user.password)) {
       req.session.currentUser = user;
-      res.redirect('/parks');
+      res.redirect('/gyms');
     } else {
       res.redirect('/auth/login');
     }

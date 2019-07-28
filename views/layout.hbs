@@ -8,20 +8,8 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
-  {{!-- <body>
-    <header>
       <nav>
         <ul>
-          <li>
-            <a href="/">Home</a>
-          </li>
-        </ul>
-      </nav>
-    </header> --}}
-
-      <nav>
-        <ul>
-          {{!-- this is calling to app.js -> app.locals.currentUser = req.session.currentUser --}}
           {{#unless currentUser}}
           <li>
             <a href="/auth/signup">I'M NEW</a>
@@ -37,11 +25,8 @@
             </form>
           </li>
           <li>
-            <a href="/parks/create"></a>
+            <a href="/gyms/create"></a>
           </li>
-          {{!-- <li>
-            <a href="/parks">PARKS</a>
-          </li> --}}
           {{/if}}
 
     {{{body}}}

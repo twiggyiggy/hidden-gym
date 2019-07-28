@@ -2,7 +2,7 @@
 
 ## Description
 
-A service that allows users to find a calisthenics park in Barcelona, view details about specific parks, and leave a personal rating based on their experience. 
+A service that allows users to find a calisthenics gym in Barcelona, view details about specific gyms, and leave a personal rating based on their experience. 
  
 ## User Stories
 
@@ -12,12 +12,12 @@ A service that allows users to find a calisthenics park in Barcelona, view detai
 - **sign up** - As a user I want to sign up on the webpage so that I can see all the events that I could attend
 - **login** - As a user I want to be able to log in on the webpage so that I can get back to my account
 - **logout** - As a user I want to be able to log out from the webpage so that I can make sure no one will access my account
-- **park list** - As a user I want to see all the parks in the area so that I can choose which ones I want to work out at
-- **park filter** - As a user I want to be able to easily filter the parks by neighborhood
-- **park create** - As a user I want to create a new park so that I can contirbute to the official list
-- **park detail** - As a user I want to see the park details and so that I can learn more about it
-- **park edit** - As a user I want to update park details so that I can keep them up to date
-- **park delete** - As a user I want to delete a park details so that the information is up to date in case a park is knocked down
+- **gym list** - As a user I want to see all the gyms in the area so that I can choose which ones I want to work out at
+- **gym filter** - As a user I want to be able to easily filter the gyms by neighborhood
+- **gym create** - As a user I want to create a new gym so that I can contirbute to the official list
+- **gym detail** - As a user I want to see the gym details and so that I can learn more about it
+- **gym edit** - As a user I want to update gym details so that I can keep them up to date
+- **gym delete** - As a user I want to delete a gym details so that the information is up to date in case a gym is knocked down
 - **menu button** - As a user I want to click on the menu button to see where I can go on the app
 - **log out** - As a user I want to log out if I'm not using the app
 
@@ -27,15 +27,15 @@ List of other features outside of the MVPs scope
 
 Geo Location:
 - find users location 
-- Parks near me - orders the Parks list based on proximity
+- gyms near me - orders the gyms list based on proximity
 
 ### Users Interaction
 
-- allows users to join together and visit a park together
+- allows users to join together and visit a gym together
 
 ### Map Display / Map Search
 
-- map of each park's location and pins
+- map of each gym's location and pins
 
 - the ability to search a specific barrio
 
@@ -44,18 +44,18 @@ Geo Location:
 - GET /
  - renders splash screen
 - GET /auth/signup
-  - redirects to /parks if user logged in
+  - redirects to /gyms if user logged in
   - renders the signup form (with flash msg)
 - POST /auth/signup
-  - redirects to /parks if user signed up
+  - redirects to /gyms if user signed up
   - body:
     - username
     - password
 - GET /auth/login
-  - redirects to /parks if user logged in
+  - redirects to /gyms if user logged in
   - renders the login form (with flash msg)
 - POST /auth/login
-  - redirects to /parks if user logged in
+  - redirects to /gyms if user logged in
   - body:
     - username
     - password
@@ -63,31 +63,31 @@ Geo Location:
   - body: (empty)
   - redirect to /
 
-- GET /parks
-  - renders the parks list
+- GET /gyms
+  - renders the gyms list
 
-- GET /parks/:id
-  - renders the parks details
+- GET /gyms/:id
+  - renders the gyms details
 
-- GET /parks/create
+- GET /gyms/create
   - renders the create form
-- POST parks/create
+- POST gyms/create
   - body: 
     - location
     - image
     - description
     - equipment
-- GET /parks/:id/edit
+- GET /gyms/:id/edit
   - renders the edit form
-- POST /parks/:id/edit
- // - redirects to /parks/:id
+- POST /gyms/:id/edit
+ // - redirects to /gyms/:id
   - body: 
     - location
     - image
     - description
     - equipment
-  - POST /parks/:id/delete
-   - redirect to /parks
+  - POST /gyms/:id/delete
+   - redirect to /gyms
 
 
 ## Models
@@ -97,10 +97,10 @@ User model
 ```
 username: String
 password: String
-parks: Array[ObjectId<Park>]
+gyms: Array[ObjectId<gym>]
 ```
 
-Park model
+gym model
 
 ```
 creator: ObjectId<User>
