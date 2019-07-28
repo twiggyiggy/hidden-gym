@@ -1,14 +1,15 @@
-<h3>GYMS:</h2>
-​
-<h2>Welcome {{currentUser.username}} !!!</h2>
-<p>Here you will find a list of gyms available in Barcelona</p>
+<h1>Welcome to Hidden Gym, {{currentUser.username}}!</h1>
+<h3>HIDDEN GYMS IN BARCELONA:- </h3>
+
+
 <ul>
     {{#each gyms}}
         <li>
             <a href="/gyms/{{_id}}/details">
-                <p>{{address}}</p>
-                <p>{{creator}}</p>
-                
+                <h4>{{address}}</h2>
+                <h5>Rating: {{averageRating}}</h3>
+                {{!-- <p>{{creator}}</p>
+                 --}}
             </a>
         </li>
     {{/each}}

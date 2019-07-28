@@ -11,6 +11,17 @@ router.get('/create', (req, res, next) => {
 });
 
 // -------------------
+/* POST delete gym */
+router.post('/:id/details/delete', async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    console.log('hello');
+    await Gym.findByIdAndDelete(id);
+    res.redirect('/gyms');
+  } catch (error) {
+    next(error);
+  }
+});
 /* POST  create-gym */
 router.post('/create', async (req, res, next) => {
   const { address, imageUrl, additionalInfo } = req.body;
@@ -43,27 +54,26 @@ router.get('/:id/details', async (req, res, next) => {
     next(error);
   }
 });
-
-// /* GET update gym */
-// router.get('/:id/details/edit', async (req, res, next) => {
-//   try {
-//     const id = req.params.id;
-//     const gym = await Gym.findById(id);
-//     res.render('creategym', gym);
-//   } catch (error) {
-//     next(error);
-//   }
-// });
-// /* POST update gym */
-// router.post('/:id/details/edit', async (req, res, next) => {
-//   try {
-//     const id = req.params.id;
-//     const gym = req.body;
-//     await Gym.findByIdAndUpdate(id, gym);
-//     res.redirect(`/gyms/${id}/details`);
-//   } catch (error) {
-//     next(error);
-//   }
-// });
+/* GET edit gym */
+router.get('/:id/details/edit', async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const gym = await Gym.findById(id);
+    res.render('updateGym', gym);
+  } catch (error) {
+    next(error);
+  }
+});
+/* POST update gym */
+router.post('/:id/details/edit', async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const gym = req.body;
+    await Gym.findByIdAndUpdate(id, gym);
+    res.redirect(`/gyms/${id}/details`);
+  } catch (error) {
+    next(error);
+  }
+});
 
 module.exports = router;

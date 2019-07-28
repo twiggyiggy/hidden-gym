@@ -1,9 +1,26 @@
-<form action="/gyms/create" method="POST">
-  <label for="address">Address</label>
-  <input type="text" name="address" id="address" value="{{title}}"required>
-  <label for="imageUrl">Image</label>
-  <input type="text" name="imageUrl" id="imageUrl" value="{{imageUrl}}"required>
-  <label for="additionalInfo">Additional information</label>
-  <input type="text" name="additional info " id="duration" value="{{additionalInfo}}">
-  <button type="submit">Update the gym!</button>
+<h2>EDIT Hidden Gym- {{address}}</h2>
+<h3>Rating: {{averageRating}}</h3>
+
+
+
+<img src="{{imageUrl}}" alt="">
+<h3>Equipment Available: </h3>
+
+<h3>Additional Information: 
+  <p>{{additionalInfo}}</p>
+</h3>
+  <p>This Hidden Gym was listed by: {{creator}}</p>
+
+<form action="/gyms/{{_id}}/details/edit" method="POST">
+  <label for="address">NEW Location Descriptor:</label>
+  <input type="text" name="address" id="address" value="{{address}}">
+  
+  <label for="additionalInfo">MORE Additional Information: </label>
+  <input type="text" name="additionalInfo" id="additionalInfo" value="{{additionalInfo}}">
+  
+  <label for="imageUrl">NEW Image</label>
+  <input type="text" name="imageUrl" id="imageUrl" value="{{imageUrl}}">
+  
+  <button type="submit">Update Hidden Gym!</button>
 </form>
+
