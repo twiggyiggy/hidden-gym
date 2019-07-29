@@ -24,12 +24,13 @@ router.post('/:id/details/delete', async (req, res, next) => {
 });
 /* POST  create-gym */
 router.post('/create', async (req, res, next) => {
-  const { address, imageUrl, additionalInfo } = req.body;
+  const { address, imageUrl, additionalInfo, equipmentAvailable } = req.body;
   try {
     const gym = await Gym.create({
       address,
       imageUrl,
-      additionalInfo
+      additionalInfo,
+      equipmentAvailable
     });
     res.redirect('/gyms');
   } catch (error) {

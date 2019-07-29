@@ -1,2 +1,17 @@
-
+ <div>
+    {{#unless currentUser}}
+        <div>
+          <h1>Hidden Gym</h1>
+          <p>Hidden Gym is the simplest way to find outdoor gyms in Barcelona</p>
+        </div>
+        <div>
+          <div>
+            <a href="/auth/signup">SIGNUP</a>
+          </div>
+          <div>
+            <a href="/auth/login">LOGIN</a>
+          </div>
+        </div>
+    {{/unless}}
+</div>
 

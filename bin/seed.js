@@ -18,6 +18,7 @@ const gyms = [
     averageRating: 6.5,
     imageUrl: 'https://living-in-stuttgart.com/wp-content/uploads/2017/08/calisthenics-in-Stuttgart-Degerloch.jpg',
     additionalInfo: 'Full of topless beefy dudes and pickpockets. Stay clear.',
+    equipmentAvailable: 'Pull-Up-Bar Station',
     creator: 'CodyKo'
   },
   {

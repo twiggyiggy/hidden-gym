@@ -5,7 +5,7 @@
 
 <img src="{{imageUrl}}" alt="">
 <h3>Equipment Available: </h3>
-
+  <p>{{equipmentAvailable}}</p>
 <h3>Additional Information: 
   <p>{{additionalInfo}}</p>
 </h3>
@@ -14,6 +14,9 @@
 <form action="/gyms/{{_id}}/details/edit" method="POST">
   <label for="address">NEW Location Descriptor:</label>
   <input type="text" name="address" id="address" value="{{address}}">
+
+  <label for="equipmentAvailable">Equipment Available</label>
+  <input type="text" name="equipmentAvailable" id="equipmentAvailable" value="{{equipmentAvailable}}">
   
   <label for="additionalInfo">MORE Additional Information: </label>
   <input type="text" name="additionalInfo" id="additionalInfo" value="{{additionalInfo}}">

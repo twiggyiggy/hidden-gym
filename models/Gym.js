@@ -29,6 +29,11 @@ const gymSchema = new Schema({
     required: true,
     unique: false
   },
+  equipmentAvailable: {
+    type: String,
+    required: false,
+    unique: false
+  },
   additionalInfo: {
     type: String,
     required: false,
