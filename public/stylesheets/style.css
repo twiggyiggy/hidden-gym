@@ -54,7 +54,7 @@ p {
 
 /* ---- layout ---- */
 
-
+/* ---- SPLASH PAGE ---- */
 .wrapper {
   background-image: url("https://slack-imgs.com/?c=1&o1=ro&url=http%3A%2F%2Fholdenoberbuergermeister.de%2Fwp-content%2Fuploads%2F540_geodir_photo_Barcelona-Spanish-Course-461.jpg");
   background-repeat: no-repeat;
@@ -62,13 +62,11 @@ p {
   display: flex;
   flex-direction: column;
 }
-
 .img-splash {
   display: block;
   margin-left: auto;
   margin-right: auto
 }
-
 .titles-splash {
   display: flex;
   margin-left: auto;
@@ -76,7 +74,6 @@ p {
   text-align: center;
   width: 20em
 }
-
 .buttons-section {
   display: flex;
   justify-content: space-evenly;
@@ -85,6 +82,35 @@ p {
   align-items: center;
   width: 20em
 }
+
+
+/* ---- LOGIN AND SIGN UP PAGES ---- */
+.login-signup-display {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 20em
+}
+#parent_login_signup {
+  display: table;
+  width: 100%;
+}
+
+#form_login_signup { 
+  display: table-cell;
+  vertical-align: middle;
+}
+.signup-login-button {
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  width: 20em
+}
+/* ---- NEW PAGE ---- */
+
 
 #site-header {
   padding: 30px 0;
@@ -122,6 +148,18 @@ p {
 
 
 /* ---- components ---- */
+a:link, a:visited {
+  background-color: orangered;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: red;
+}
 
 .button {
   width: 100%;
