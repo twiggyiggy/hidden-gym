@@ -1,11 +1,23 @@
+<section class="login-signup-display">
+
 <h2>LOGIN</h2>
-<form action="/auth/login" method="POST">
-    <label for="username">Username</label>
+<div id="parent_login_signup">
+<form id="form_login_signup" action="/auth/login" method="POST">
+    <label for="username"></label>
     <input type="text" name="username" id="username" required placeholder="Username">
-    <label for="password">Password</label> 
+    <br>
+    <label for="password"></label> 
     <input type="password" name="password" id="password" required placeholder="Password">
+    <br>
     <button type="submit">Login</button>
 </form>
-<div>
-    <a href="/auth/signup">Don't have an account?</a>
 </div>
+
+<section class="signup-login-button">
+    <div>
+        <a href="/auth/signup">Don't have an account?</a>
+    </div>
+</section>
+
+
+</section>
