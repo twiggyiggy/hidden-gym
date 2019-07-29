@@ -17,50 +17,96 @@ html {
 }
 
 body {
-  margin: 0;
-  padding: 0;
+  min-height: 100%;
+	background: blanchedalmond;
+	font-family: Arial;
 }
+/* 
+ --- NAV MENU ---
+} */
+nav {
+	width: 100%;
+	float: left;
+	font-weight: bold;
+}
+nav ul {
+	list-style: none;
+	padding: 0px;	
+  margin: 0px;
+  background-color: indianred;
+  color: white;
+  padding: 14px 25px;
+  text-align: left;
+}
+nav li {
+	position: relative;
+	float: left;
+	padding: 1px;
+	cursor: pointer;
+}
+nav ul ul {
+	left: 0px;
+	opacity: 0;
+	transition-property: opacity, transform;
+	transition-duration: 100ms, 100ms;
+	transform: translate(0px,-10px);
+	transition-timing-function: ease ease;
+	transition-delay: 200ms;
+}
+nav li li {
+	float: none;
+	padding: 5px 0px;
+}
+nav li:hover ul {
+	transform: translate(0px,0px);
+	opacity: 1;
+}
+
+
 
 
 /* ---- typography ---- */
 
 body {
   color: #111;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "Arial Black", Gadget, sans-serif;
   font-size: 16px;
   line-height: 147%;
-  background-color: black;
   color: white;
+  min-height: 100%;
+
 }
+
 
 h1 {
 
 }
 
 h2 {
-  color: orangered;
+  color: darkgoldenrod
+  
 }
 
 h3 {
-
+  color: lightslategray
 }
 
 p {
   margin: 0;
+  color: lightslategray
 }
 
 
 
-/* ---- layout ---- */
 
 /* ---- SPLASH PAGE ---- */
-.wrapper {
+/* .wrapper {
   background-image: url("https://slack-imgs.com/?c=1&o1=ro&url=http%3A%2F%2Fholdenoberbuergermeister.de%2Fwp-content%2Fuploads%2F540_geodir_photo_Barcelona-Spanish-Course-461.jpg");
   background-repeat: no-repeat;
   height: 100vh;
   display: flex;
   flex-direction: column;
-}
+} */
 .img-splash {
   display: block;
   margin-left: auto;
@@ -73,6 +119,7 @@ p {
   text-align: center;
   width: 20em
 }
+
 .buttons-section {
   display: flex;
   justify-content: space-evenly;
@@ -89,7 +136,7 @@ p {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  width: 20em
+  width: 20em;
 }
 #parent_login_signup {
   display: table;
@@ -108,7 +155,14 @@ p {
   align-items: center;
   width: 20em
 }
-/* ---- NEW PAGE ---- */
+/* ---- GYMS PAGE ---- */
+.welcome-title {
+  display: inline;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 20em;
+}
 .gyms-list {
   display: block;
   margin-left: auto;
@@ -166,7 +220,7 @@ li img {
 
 /* ---- components ---- */
 a:link, a:visited {
-  background-color: orangered;
+  background-color: wheat;
   color: white;
   padding: 14px 25px;
   text-align: center;
@@ -175,7 +229,7 @@ a:link, a:visited {
 }
 
 a:hover, a:active {
-  background-color: red;
+  background-color: indianred;
 }
 
 .button {
@@ -199,4 +253,5 @@ section.testimonials {
 section.testimonials .button {
   margin-bottom: 10px;
 }
+
 
