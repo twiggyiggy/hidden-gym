@@ -38,7 +38,7 @@ router.post('/signup', async (req, res, next) => {
 
     req.session.currentUser = newUser;
 
-    res.redirect('/gymsList');
+    res.redirect('/gyms');
   } catch (error) {
     next(error);
   }
