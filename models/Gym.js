@@ -30,7 +30,7 @@ const gymSchema = new Schema({
     unique: false
   },
   equipmentAvailable: {
-    type: String,
+    type: Array,
     required: false,
     unique: false
   },
