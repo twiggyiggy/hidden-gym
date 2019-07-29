@@ -3,6 +3,8 @@
 const express = require('express');
 const router = express.Router();
 const Gym = require('../models/Gym.js');
+const parser = require('../config/cloudinary');
+
 // -------------------
 /* GET create-gym */
 router.get('/create', (req, res, next) => {
@@ -23,12 +25,13 @@ router.post('/:id/details/delete', async (req, res, next) => {
   }
 });
 /* POST  create-gym */
-router.post('/create', async (req, res, next) => {
+router.post('/create', parser.single('photo'), async (req, res, next) => {
   const { address, imageUrl, additionalInfo, equipmentAvailable } = req.body;
+  const image = req.file.secure_url;
   try {
     const gym = await Gym.create({
       address,
-      imageUrl,
+      image,
       additionalInfo,
       equipmentAvailable
     });

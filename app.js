@@ -8,6 +8,7 @@ const hbs = require('hbs');
 
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
+require('dotenv').config();
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -18,7 +19,7 @@ const mongoose = require('mongoose');
 
 const app = express();
 
-mongoose.connect('mongodb://localhost/hidden-gym', {
+mongoose.connect(process.env.MONGODB_URI, {
   keepAlive: true,
   useNewUrlParser: true,
   reconnectTries: Number.MAX_VALUE
@@ -29,8 +30,8 @@ app.use(session({
     mongooseConnection: mongoose.connection,
     ttl: 24 * 60 * 60 // 1 day
   }),
-  secret: 'some-string',
-  resave: true, // how we can see each user's session id/cookie id when Login post in auth.js runs
+  secret: process.env.SECRET_SESSION,
+  resave: true,
   httpOnly: true,
   saveUninitialized: true,
   cookie: {

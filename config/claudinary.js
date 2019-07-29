@@ -1,16 +1,17 @@
 const cloudinary = require('cloudinary');
 const cloudinaryStorage = require('multer-storage-cloudinary');
 const multer = require('multer');
+require('dotenv').config();
 
 cloudinary.config({
-  cloud_name: 'dygs6mymv',
-  api_key: '566328748912286',
-  api_secret: '48m31-IvFePtxuGErxL4GpyHstY'
+  cloud_name: process.env.CLAUDINARY_CLOUD_NAME,
+  api_key: process.env.CLAUDINARY_API_KEY,
+  api_secret: process.env.CLAUDINARY_API_SECRET
 });
 
 const storage = cloudinaryStorage({
   cloudinary: cloudinary,
-  folder: 'name folder',
+  folder: 'Hidden Gym',
   allowedFormats: ['jpg', 'png']
 });
 

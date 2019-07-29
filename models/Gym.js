@@ -24,10 +24,8 @@ const gymSchema = new Schema({
     required: false,
     unique: false
   },
-  imageUrl: {
-    type: String,
-    required: true,
-    unique: false
+  image: {
+    type: String
   },
   equipmentAvailable: {
     type: Array,
