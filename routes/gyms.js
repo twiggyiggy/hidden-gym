@@ -26,10 +26,19 @@ router.post('/:id/details/delete', async (req, res, next) => {
 });
 /* POST  create-gym */
 router.post('/create', parser.single('photo'), async (req, res, next) => {
-  const { address, imageUrl, additionalInfo, equipmentAvailable } = req.body;
-  const image = req.file.secure_url;
+  const { address, additionalInfo, equipmentAvailable } = req.body;
+  let image = req.file.secure_url || 'https://res.cloudinary.com/dygs6mymv/image/upload/v1564402920/Hidden%20Gym/calisthenics-park1_pn1gcy.jpg';
+  // lines 31-39 to be refactored
+  // let image = defultURL && req.file.secure_url;
+  // let image = req.file.secure_url || 'https://res.cloudinary.com/dygs6mymv/image/upload/v1564402920/Hidden%20Gym/calisthenics-park1_pn1gcy.jpg';
+  if (req.file.secure_url) {
+    image = req.file.secure_url;
+  } else {
+    image = 'https://res.cloudinary.com/dygs6mymv/image/upload/v1564402920/Hidden%20Gym/calisthenics-park1_pn1gcy.jpg';
+  }
+
   try {
-    const gym = await Gym.create({
+    await Gym.create({
       address,
       image,
       additionalInfo,
