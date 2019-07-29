@@ -2,15 +2,14 @@
 <h3>HIDDEN GYMS IN BARCELONA- </h3>
 
 
-<ul class="gyms-list">
+<section class="gyms-list">
     {{#each gyms}}
         <li>
             <a href="/gyms/{{_id}}/details">
-                <h4>{{address}}</h2>
-                <h5>Rating: {{averageRating}}</h3>
-                {{!-- <p>{{creator}}</p>
-                 --}}
+            <img src="./images/location.png">
+            <h3>{{address}}</h3>
+            <p>Rating: {{averageRating}}</p>
             </a>
         </li>
     {{/each}}
-</ul>
+</section>

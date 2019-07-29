@@ -109,7 +109,23 @@ p {
   width: 20em
 }
 /* ---- NEW PAGE ---- */
-
+.gyms-list {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  list-style-type: none;
+  width: 500px;
+}
+li {
+  padding: 15px;
+  overflow: auto;
+}
+li img {
+  float: left;
+  margin: 0 15px 0 0;
+  height: 300px;
+}
 
 
 
