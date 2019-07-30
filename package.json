@@ -35,8 +35,11 @@
     "node": "v12.6.0",
     "npm": "6.10.1"
   }
+  ,"view": {
+    "split": "split",
+    "fontsize":"100",
+    "seethrough":"",
+    "prefixfree":"1",
+    "page":"css"
+  }
 }
-{
-  "view":
-  "split",
-  "fontsize":"100","seethrough":"","prefixfree":"1","page":"css"}
