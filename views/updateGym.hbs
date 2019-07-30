@@ -1,29 +1,30 @@
-<h2>EDIT Hidden Gym- {{address}}</h2>
-<h3>Rating: {{averageRating}}</h3>
+<section class="details-title">
+  <h2>Edit Hidden Gym- {{address}}</h2>
+</section>
 
-
-
-<img src="{{image}}" alt="">
-<h3>Equipment Available: </h3>
-  <p>{{equipmentAvailable}}</p>
-<h3>Additional Information: 
-  <p>{{additionalInfo}}</p>
+<img src="{{image}}" alt="gym photo">
+<h3>EQUIPMENT:</h3>
+<li>{{equipmentAvailable}}</li>
 </h3>
-  <p>This Hidden Gym was listed by: {{creator}}</p>
+<h3>ADDITIONAL INFO:</h3>
+<li>{{additionalInfo}}</li>
+
+<p>RATING: {{averageRating}}</p>
+<p>CREATED BY: {{creator}}</p>
 
 <form action="/gyms/{{_id}}/details/edit" method="POST" enctype="multipart/form-data">
-  <label for="address">NEW Location Descriptor:</label>
+  <label for="address">EDIT ADDRESS</label>
   <input type="text" name="address" id="address" value="{{address}}">
-
-  <label for="equipmentAvailable">Equipment Available</label>
-  <input type="text" name="equipmentAvailable" id="equipmentAvailable" value="{{equipmentAvailable}}">
-  
-  <label for="additionalInfo">MORE Additional Information: </label>
-  <input type="text" name="additionalInfo" id="additionalInfo" value="{{additionalInfo}}">
-  
-  <label for="photo">Upload an Image</label>
+  <br>
+  <label for="photo">NEW IMAGE</label>
   <input type="file" name="photo" id="photo" value="{{image}}"/>
-  
-  <button type="submit">Update Hidden Gym!</button>
+  <br>
+  <label for="equipmentAvailable">EDIT EQUIPMENT</label>
+  <input type="text" name="equipmentAvailable" id="equipmentAvailable" value="{{equipmentAvailable}}">
+  <br>
+  <label for="additionalInfo">ADDITIONAL INFO</label>
+  <input type="text" name="additionalInfo" id="additionalInfo" value="{{additionalInfo}}">
+  <br>
+  <button type="submit">UPDATE!</button>
 </form>
 

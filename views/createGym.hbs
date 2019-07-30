@@ -1,17 +1,19 @@
-<h3>Create Hidden Gym:</h3>
+<section class="createGym-title">
+<h2>Add a Hidden Gym</h2>
+</section>
 
 <form action="/gyms/create" method="POST" enctype="multipart/form-data">
-  <label for="address">Address</label>
-  <input type="text" name="address" id="address" required>
-  
-  <label for="photo">Upload an Image</label>
+  <label for="address">ADDRESS</label>
+  <input style="width:200px" type="text" name="address" id="address" required>
+  <br>
+  <label for="photo">UPLOAD AN IMAGE</label>
   <input type="file" name="photo"/>
-
-  <label for="equipmentAvailable">Equipment Available</label>
-  <input type="text" name="equipmentAvailable" id="equipmentAvailable">
-  
-  <label for="additionalInfo">Additional information</label>
-  <input type="text" name="additionalInfo" id="additionalInfo">
-  
-  <button type="submit">Add the gym!</button>
+  <br>
+  <label for="equipmentAvailable">EQUIPMENT</label>
+  <input style="width:200px"type="text" name="equipmentAvailable" id="equipmentAvailable">
+  <br>
+  <label for="additionalInfo">ADDITIONAL INFO</label>
+  <input style="width:200px" type="text" name="additionalInfo" id="additionalInfo">
+  <br>
+  <button type="submit">ADD!</button>
 </form>

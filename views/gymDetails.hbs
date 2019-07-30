@@ -1,17 +1,19 @@
-<h2>Hidden Gym- {{address}}</h2>
-<h3>Rating: {{averageRating}}</h3>
+<section class="details-title">
+  <h2>Hidden Gym- {{address}}</h2>
+</section>
 
 <img src="{{image}}" alt="gym photo">
-<h3>Equipment Available: </h3>
-  <p>{{equipmentAvailable}}</p>
+<h3>EQUIPMENT:</h3>
+<li>{{equipmentAvailable}}</li>
 </h3>
-<h3>Additional Information: 
-  <p>{{additionalInfo}}</p>
-</h3>
-<p>This Hidden Gym was listed by: {{creator}}</p>
+<h3>ADDITIONAL INFO:</h3>
+<li>{{additionalInfo}}</li>
+
+<p>RATING: {{averageRating}}</p>
+<p>CREATED BY: {{creator}}</p>
 
 <a href="/gyms/{{_id}}/details/edit">EDIT</a>
 
 <form action="/gyms/{{_id}}/details/delete" method="POST">
-    <button type="submit">DELETE THE SON OF A BITCH</button>
+    <button type="submit">DELETE</button>
 </form>

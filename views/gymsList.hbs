@@ -1,5 +1,5 @@
  <section class="welcome-title">
-    <h2>Welcome to Hidden Gym, {{currentUser.username}}!</h2>
+    <h2>Welcome, {{currentUser.username}}!</h2>
     <h3>HIDDEN GYMS IN BARCELONA- </h3>
  </section>
 
@@ -8,7 +8,7 @@
     {{#each gyms}}
         <li>
             <a href="/gyms/{{_id}}/details">
-            <img src="./images/location.png">
+            <img src="{{image}}">
             <h3>{{address}}</h3>
             <p>Rating: {{averageRating}}</p>
             </a>
