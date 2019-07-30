@@ -78,10 +78,20 @@ router.get('/:id/details/edit', async (req, res, next) => {
   }
 });
 /* POST update gym */
-router.post('/:id/details/edit', async (req, res, next) => {
+router.post('/:id/details/edit', parser.single('photo'), async (req, res, next) => {
   try {
     const id = req.params.id;
     const gym = req.body;
+    let image;
+
+    if (req.file) {
+      image = req.file.secure_url;
+    } else {
+      const gym = await Gym.findById(id);
+      image = gym.image;
+    }
+
+    gym.image = image;
     await Gym.findByIdAndUpdate(id, gym);
     res.redirect(`/gyms/${id}/details`);
   } catch (error) {
