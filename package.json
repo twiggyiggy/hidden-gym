@@ -10,6 +10,7 @@
     "bcrypt": "^3.0.6",
     "cloudinary": "^1.14.0",
     "cloudinary-react": "^1.1.4",
+    "connect-flash": "^0.1.1",
     "connect-mongo": "^3.0.0",
     "cookie-parser": "^1.4.4",
     "debug": "~2.6.9",
@@ -34,12 +35,12 @@
   "engines": {
     "node": "v12.6.0",
     "npm": "6.10.1"
-  }
-  ,"view": {
+  },
+  "view": {
     "split": "split",
-    "fontsize":"100",
-    "seethrough":"",
-    "prefixfree":"1",
-    "page":"css"
+    "fontsize": "100",
+    "seethrough": "",
+    "prefixfree": "1",
+    "page": "css"
   }
 }
