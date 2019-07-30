@@ -56,13 +56,9 @@ router.get('/', async (req, res, next) => {
   res.render('gymsList', { gyms });
 });
 
-// -------------------
-
 router.post('/:id/details/:answer', async (req, res, next) => {
-  // refactor two lines below to use object destructuring
   try {
-    const id = req.params.id;
-    const answer = req.params.answer;
+    const { id, answer } = req.params;
     const gym = await Gym.findById(id);
     let totalVotes = gym.totalVotes;
     let upvotes = gym.upvotes;
@@ -73,7 +69,7 @@ router.post('/:id/details/:answer', async (req, res, next) => {
     } else {
       totalVotes++;
     }
-    averageRating = upvotes / totalVotes;
+    averageRating = Math.round(upvotes / totalVotes * 100);
     await Gym.findByIdAndUpdate(id, { totalVotes, upvotes, averageRating }); // object destructuring?
     res.redirect(`/gyms/${id}/details`);
   } catch (error) {
