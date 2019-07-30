@@ -57,6 +57,28 @@ router.get('/', async (req, res, next) => {
 });
 
 // -------------------
+
+router.post('/:id/details/:answer', async (req, res, next) => {
+  // refactor two lines below to use object destructuring
+  try {
+    const id = req.params.id;
+    const answer = req.params.answer;
+    const gym = await Gym.findById(id);
+    let totalVotes = gym.totalVotes;
+    let upvotes = gym.upvotes;
+    if (answer === 'yes') {
+      upvotes++;
+      totalVotes++;
+    } else {
+      totalVotes++;
+    }
+    await Gym.findByIdAndUpdate(id, { totalVotes, upvotes });
+    res.redirect(`/gyms/${id}/details`);
+  } catch (error) {
+    next(error);
+  }
+});
+
 /* Get gym Details */
 router.get('/:id/details', async (req, res, next) => {
   try {

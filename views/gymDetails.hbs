@@ -3,6 +3,12 @@
 </section>
 
 <img src="{{image}}" alt="gym photo">
+<form action="/gyms/{{id}}/details/yes" method="POST">
+    <button type="submit">Upvote!</button>
+</form>
+<form action="/gyms/{{id}}/details/no" method="POST">
+    <button type="submit">Downvote!</button>
+</form>
 <h3>EQUIPMENT:</h3>
 <li>{{equipmentAvailable}}</li>
 </h3>
