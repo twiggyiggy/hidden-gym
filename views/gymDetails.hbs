@@ -14,8 +14,11 @@
 </h3>
 <h3>ADDITIONAL INFO:</h3>
 <li>{{additionalInfo}}</li>
-
+{{#if averageRating}}
 <p>GYM RATING: {{averageRating}}%</p>
+{{else}}
+<p>GYM RATING: No votes yet. Be the first one to rate it!</p>
+{{/if}}
 <p>CREATED BY: {{creator}}</p>
 
 <a href="/gyms/{{_id}}/details/edit">EDIT</a>
