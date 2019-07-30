@@ -13,9 +13,6 @@ const router = express.Router();
 /*  --- --- --- --- --- --- 5 routas principales --- --- --- --- --- --- */
 // SIGNUP --- --- --- --- --- ---
 router.get('/signup', isLoggedIn, (req, res, next) => {
-  const data = {
-    messages: req.flash('errorFormNotFilled')
-  };
   res.render('signup');
 });
 
