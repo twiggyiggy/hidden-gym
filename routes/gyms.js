@@ -66,13 +66,15 @@ router.post('/:id/details/:answer', async (req, res, next) => {
     const gym = await Gym.findById(id);
     let totalVotes = gym.totalVotes;
     let upvotes = gym.upvotes;
+    let averageRating = gym.averageRating;
     if (answer === 'yes') {
       upvotes++;
       totalVotes++;
     } else {
       totalVotes++;
     }
-    await Gym.findByIdAndUpdate(id, { totalVotes, upvotes });
+    averageRating = upvotes / totalVotes;
+    await Gym.findByIdAndUpdate(id, { totalVotes, upvotes, averageRating }); // object destructuring?
     res.redirect(`/gyms/${id}/details`);
   } catch (error) {
     next(error);

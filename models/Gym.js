@@ -11,17 +11,16 @@ const gymSchema = new Schema({
   },
   upvotes: {
     type: Number,
-    required: false,
+    default: 0,
     unique: false
   },
   totalVotes: {
     type: Number,
-    required: false,
+    default: 0,
     unique: false
   },
   averageRating: {
-    type: Number, // calculateAverageRating();
-    required: false,
+    type: Number,
     unique: false
   },
   image: {
