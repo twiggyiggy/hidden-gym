@@ -26,7 +26,7 @@ const isFormFilled = (req, res, next) => {
 const isRegistered = async (req, res, next) => {
   const { username } = req.body;
   const user = await User.findOne({ username });
-  if (user) { // isRegistered?
+  if (user) {
     return res.redirect('/auth/signup');
   }
   next();
@@ -35,7 +35,7 @@ const isRegistered = async (req, res, next) => {
 const isNotRegistered = async (req, res, next) => {
   const { username } = req.body;
   const user = await User.findOne({ username });
-  if (!user) { // isNotRegistered
+  if (!user) {
     return res.redirect('/auth/login');
   }
   next();

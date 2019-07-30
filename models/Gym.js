@@ -2,6 +2,7 @@
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const ObjectId = Schema.Types.ObjectId;
 
 const gymSchema = new Schema({
   address: {
@@ -14,10 +15,12 @@ const gymSchema = new Schema({
     default: 0,
     unique: false
   },
-  totalVotes: {
-    type: Number,
-    default: 0,
-    unique: false
+  usersVotes: {
+    type: [{
+      type: ObjectId,
+      ref: 'User'
+    }]
+    // default: 0
   },
   averageRating: {
     type: Number,

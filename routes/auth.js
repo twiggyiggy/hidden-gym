@@ -10,8 +10,7 @@ const { isLoggedIn, isNotLoggedIn, isFormFilled, isRegistered, isNotRegistered }
 const saltRounds = 10;
 const router = express.Router();
 
-/*  --- --- --- --- --- --- 5 routas principales --- --- --- --- --- --- */
-// SIGNUP --- --- --- --- --- ---
+// SIGNUP
 router.get('/signup', isLoggedIn, (req, res, next) => {
   res.render('signup');
 });
@@ -32,7 +31,7 @@ router.post('/signup', isLoggedIn, isFormFilled, isRegistered, async (req, res, 
   }
 });
 
-// LOGIN --- --- --- --- --- ---
+// LOGIN
 router.get('/login', isLoggedIn, (req, res, next) => {
   res.render('login');
 });
@@ -52,7 +51,7 @@ router.post('/login', isLoggedIn, isFormFilled, isNotRegistered, async (req, res
   }
 });
 
-// LOGOUT  --- --- --- --- --- ---
+// LOGOUT
 router.post('/logout', isNotLoggedIn, (req, res, next) => {
   delete req.session.currentUser;
   return res.redirect('/');
