@@ -27,14 +27,14 @@ router.post('/:id/details/delete', async (req, res, next) => {
 /* POST  create-gym */
 router.post('/create', parser.single('photo'), async (req, res, next) => {
   const { address, additionalInfo, equipmentAvailable } = req.body;
-  let image = req.file.secure_url || 'https://res.cloudinary.com/dygs6mymv/image/upload/v1564402920/Hidden%20Gym/calisthenics-park1_pn1gcy.jpg';
-  // lines 31-39 to be refactored
-  // let image = defultURL && req.file.secure_url;
-  // let image = req.file.secure_url || 'https://res.cloudinary.com/dygs6mymv/image/upload/v1564402920/Hidden%20Gym/calisthenics-park1_pn1gcy.jpg';
-  if (req.file.secure_url) {
+  // lines 31-37 can go, only want to ask Jack about them!
+  // const defaultImageUrl = 'https://res.cloudinary.com/dygs6mymv/image/upload/v1564402920/Hidden%20Gym/calisthenics-park1_pn1gcy.jpg';
+  // let image = req.file.secure_url || defaultImageUrl;
+  // image = defaultImageUrl && req.file.secure_url;
+  // let imageDefault;
+  let image;
+  if (req.file !== undefined) {
     image = req.file.secure_url;
-  } else {
-    image = 'https://res.cloudinary.com/dygs6mymv/image/upload/v1564402920/Hidden%20Gym/calisthenics-park1_pn1gcy.jpg';
   }
 
   try {

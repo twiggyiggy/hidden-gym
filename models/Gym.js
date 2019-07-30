@@ -25,7 +25,8 @@ const gymSchema = new Schema({
     unique: false
   },
   image: {
-    type: String
+    type: String,
+    default: 'https://res.cloudinary.com/dygs6mymv/image/upload/v1564402920/Hidden%20Gym/calisthenics-park1_pn1gcy.jpg'
   },
   equipmentAvailable: {
     type: Array,
