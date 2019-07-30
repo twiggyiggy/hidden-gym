@@ -1,11 +1,4 @@
-/* body {
-  padding: 2rem;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
 
-a {
-  color: #00B7FF;
-} */
 
 /* ---- reset ---- */
 
@@ -18,24 +11,70 @@ html {
 
 
 body {
-  color: #111;
+  color: white;
   font-family: "Arial Black", Gadget, sans-serif;
   font-size: 16px;
   line-height: 147%;
-  color: white;
   background: var(--color);
   min-height: 100%;
 
 }
 :root {
-  --color: rgb(44,45,58);
-  --main-color: rgb(85, 72, 32);
-  --secondary-color: rgb(223, 179, 55);
-  --tertiary-color: rgb(232, 88, 49);
+  --color: #2A2B2DFF;
+  --main-color: white;
+  --secondary-color:  #D9514EFF;
+  --tertiary-color: #2DA8D8FF;
 }
 /* 
- --- NAV MENU ---
-} */
+ --- DROPDOWN MENU ---
+/* Style The Dropdown Button */
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* The container <div> -positions it */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* content in the dropdown */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the bg of dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+/* 
+} 
 nav {
 	width: 100%;
   font-weight: bold;
@@ -71,7 +110,7 @@ nav li li {
 nav li:hover ul {
 	transform: translate(0px,0px);
 	opacity: 1;
-}
+} */
 
 
 
@@ -88,10 +127,11 @@ h1 {
 h2 {
   color: var(--tertiary-color);
   
+  
 }
 
 h3 {
-  color: var(--main-color);
+  color: var(--secondary-color);
 }
 
 p {
@@ -111,7 +151,7 @@ p {
   flex-direction: column;
 } */
 .img-splash {
-  display: block;
+  display: flex;
   margin-left: auto;
   margin-right: auto
 }
@@ -150,32 +190,17 @@ p {
   display: table-cell;
   vertical-align: middle;
 }
-.submit-login-button {
-  background-color: rgb(237, 237, 208);
-  border: 1px solid var(--tertiary-color);
-  color: var(--secondary-color);
-  padding: 14px 25px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-}
-.signup-login-button {
-  display: flex;
-  justify-content: space-evenly;
-  margin-left: auto;
-  margin-right: auto;
-  align-items: center;
-  width: 20em
-}
+
 /* ---- GYMS PAGE ---- */
 .welcome-title {
-  display: inline;
+  display: flex;
+  flex-flow: row wrap;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
   width: 20em;
 }
-.details-title {
+/* .details-title {
   display: inline;
   margin-left: auto;
   margin-right: auto;
@@ -188,23 +213,43 @@ p {
   margin-right: auto;
   text-align: center;
   width: 20em;
+} */
+
+.gyms-list-gallery {
+  display: grid;
+
 }
-.gyms-list {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+.gyms-list-gallery ul {
+  display: flex;
+  flex-flow: row wrap;
+  list-style: none;
+  margin: 32px 0;
+}
+.gyms-list-gallery li {
+  margin: 0 10px;
+  flex-basis: calc(50% - 20px);  /* width minus margins */
+}
+
+.gyms-list-gallery img {
+  width: 100%;           /* occupy 100% width of li container */
+  height: auto;
+}
+
+
+/* ---- GYM DETAILS ---- */
+a.this-gym-details:link, a.this-gym-details:visited {
+  background-color: var(--color);
+  border: 1px solid var(--tertiary-color);
+  color: var(--secondary-color);
+  padding: 14px 25px;
   text-align: center;
-  list-style-type: none;
-  width: 500px;
+  text-decoration: none;
+  display: inline-block;
 }
-li {
-  padding: 15px;
-  overflow: auto;
-}
-li img {
-  float: left;
-  margin: 0 15px 0 0;
-  height: 300px;
+
+a.this-gym-details:hover, a.this-gym-details:active {
+  background-color: var(--tertiary-color);
+  color: rgb(237, 237, 208);
 }
 
 
@@ -245,32 +290,5 @@ li img {
 
 
 
-/* ---- components ---- */
-a:link, a:visited {
-  background-color: rgb(237, 237, 208);
-  border: 1px solid var(--tertiary-color);
-  color: var(--secondary-color);
-  padding: 14px 25px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-}
-
-a:hover, a:active {
-  background-color: var(--secondary-color);
-  color: rgb(237, 237, 208);
-}
-
-
-
-/* ---- section ---- */
-
-section.testimonials {
-  // ...
-}
-
-section.testimonials .button {
-  margin-bottom: 10px;
-}
 
 

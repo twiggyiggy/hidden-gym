@@ -8,25 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
       {{#if currentUser}}
-      <nav>
-        <ul>
-          <li>***
-            <ul>
-              <li>
+        <div class="dropdown">
+          <button class="dropbtn">Menu</button>
+            <div class="dropdown-content">
               <a href="/gyms">Hidden Gyms</a>
-              </li>
-              <li>
               <a href="/gyms/create">Add A Gym</a>
-              </li>
-              <li>
               <form action="/auth/logout" method="POST">
               <button type="submit">Logout</button>
               </form>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
+            </div>
+        </div>
        {{/if}}
     {{{body}}}
 

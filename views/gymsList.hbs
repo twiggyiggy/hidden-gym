@@ -1,17 +1,28 @@
  <section class="welcome-title">
+     <div>
     <h2>Welcome, {{currentUser.username}}!</h2>
+     </div>
+     <div style="flex-shrink: 0">
     <h3>HIDDEN GYMS IN BARCELONA- </h3>
+
+     </div>
  </section>
 
 
-<section class="gyms-list">
+<section class="gyms-list-gallery">
     {{#each gyms}}
-        <li>
-            <a href="/gyms/{{_id}}/details">
-            <img src="{{image}}">
-            <h3>{{address}}</h3>
-            <p>Rating: {{averageRating}}</p>
-            </a>
-        </li>
+    <a class="this-gym-details" href="/gyms/{{_id}}/details">
+    <h3>{{address}}</h3>
+        <ul>
+            <li>
+                <img src="{{image}}">
+            </li>
+
+            </li>
+                <p>Rating: {{averageRating}}</p>
+            </li>
+
+        </ul>
+    </a>
     {{/each}}
 </section>
