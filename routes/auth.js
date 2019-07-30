@@ -4,7 +4,7 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 
 const User = require('../models/User');
-const { isLoggedIn, isNotLoggedIn, isFormFilled } = require('../middlewares/authMiddlewares');
+const { isLoggedIn, isNotLoggedIn, isFormFilled, isRegistered, isNotRegistered } = require('../middlewares/authMiddlewares');
 
 // requires de archivos
 const saltRounds = 10;
@@ -16,18 +16,11 @@ router.get('/signup', isLoggedIn, (req, res, next) => {
   res.render('signup');
 });
 
-router.post('/signup', isLoggedIn, isFormFilled, async (req, res, next) => {
-  if (req.session.currentUser) {
-    return res.redirect('/gyms');
-  }
+router.post('/signup', isLoggedIn, isFormFilled, isRegistered, async (req, res, next) => {
   try {
     const { username, password } = req.body;
     const salt = bcrypt.genSaltSync(saltRounds);
     const hashedPassword = bcrypt.hashSync(password, salt);
-    const user = await User.findOne({ username });
-    if (user) {
-      return res.redirect('/auth/signup');
-    }
     const newUser = await User.create({
       username,
       password: hashedPassword
@@ -44,14 +37,10 @@ router.get('/login', isLoggedIn, (req, res, next) => {
   res.render('login');
 });
 
-router.post('/login', isLoggedIn, isFormFilled, async (req, res, next) => {
-  const { username, password } = req.body;
-
+router.post('/login', isLoggedIn, isFormFilled, isNotRegistered, async (req, res, next) => {
   try {
+    const { username, password } = req.body;
     const user = await User.findOne({ username });
-    if (!user) {
-      return res.redirect('/auth/login');
-    }
     if (bcrypt.compareSync(password, user.password)) {
       req.session.currentUser = user;
       res.redirect('/gyms');
