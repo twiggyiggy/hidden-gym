@@ -16,31 +16,42 @@ html {
   box-sizing: inherit;
 }
 
+
 body {
+  color: #111;
+  font-family: "Arial Black", Gadget, sans-serif;
+  font-size: 16px;
+  line-height: 147%;
+  color: white;
+  background: var(--color);
   min-height: 100%;
-	background: blanchedalmond;
-	font-family: Arial;
+
+}
+:root {
+  --color: rgb(44,45,58);
+  --main-color: rgb(85, 72, 32);
+  --secondary-color: rgb(223, 179, 55);
+  --tertiary-color: rgb(232, 88, 49);
 }
 /* 
  --- NAV MENU ---
 } */
 nav {
 	width: 100%;
-	float: left;
-	font-weight: bold;
+  font-weight: bold;
+  
 }
 nav ul {
 	list-style: none;
 	padding: 0px;	
   margin: 0px;
-  background-color: indianred;
-  color: white;
+  
   padding: 14px 25px;
   text-align: left;
 }
 nav li {
 	position: relative;
-	float: left;
+
 	padding: 1px;
 	cursor: pointer;
 }
@@ -67,15 +78,7 @@ nav li:hover ul {
 
 /* ---- typography ---- */
 
-body {
-  color: #111;
-  font-family: "Arial Black", Gadget, sans-serif;
-  font-size: 16px;
-  line-height: 147%;
-  color: white;
-  min-height: 100%;
 
-}
 
 
 h1 {
@@ -83,12 +86,12 @@ h1 {
 }
 
 h2 {
-  color: darkgoldenrod
+  color: var(--tertiary-color);
   
 }
 
 h3 {
-  color: lightslategray
+  color: var(--main-color);
 }
 
 p {
@@ -220,8 +223,9 @@ li img {
 
 /* ---- components ---- */
 a:link, a:visited {
-  background-color: wheat;
-  color: white;
+  background-color: rgb(237, 237, 208);
+  border: 1px solid var(--tertiary-color);
+  color: var(--secondary-color);
   padding: 14px 25px;
   text-align: center;
   text-decoration: none;
@@ -229,20 +233,11 @@ a:link, a:visited {
 }
 
 a:hover, a:active {
-  background-color: indianred;
+  background-color: var(--secondary-color);
+  color: rgb(237, 237, 208);
 }
 
-.button {
-  width: 100%;
-  background-color: blue;
-  color: #fff;
-  border: 1px solid #fff
-}
 
-.button-alt {
-  color: blue;
-  background-color: #fff;
-}
 
 /* ---- section ---- */
 
