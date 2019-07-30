@@ -150,6 +150,15 @@ p {
   display: table-cell;
   vertical-align: middle;
 }
+.submit-login-button {
+  background-color: rgb(237, 237, 208);
+  border: 1px solid var(--tertiary-color);
+  color: var(--secondary-color);
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
 .signup-login-button {
   display: flex;
   justify-content: space-evenly;
@@ -160,6 +169,20 @@ p {
 }
 /* ---- GYMS PAGE ---- */
 .welcome-title {
+  display: inline;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 20em;
+}
+.details-title {
+  display: inline;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 20em;
+}
+.createGym-title {
   display: inline;
   margin-left: auto;
   margin-right: auto;
@@ -183,6 +206,7 @@ li img {
   margin: 0 15px 0 0;
   height: 300px;
 }
+
 
 
 
