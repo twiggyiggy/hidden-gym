@@ -57,7 +57,7 @@ router.post('/:id/details/:answer', async (req, res, next) => {
     const usersVotes = gym.usersVotes; // a shorthand for the next 3 lines?
     let upvotes = gym.upvotes;
     let averageRating = gym.averageRating;
-    const userId = req.session.currentUser.id;
+    const userId = req.session.currentUser._id;
     console.log(userId);
     if (usersVotes.includes(userId)) {
       return res.redirect(`/gyms/${id}/details`);
@@ -65,9 +65,12 @@ router.post('/:id/details/:answer', async (req, res, next) => {
       if (answer === 'yes') {
         upvotes++;
       }
-      await Gym.findByIdAndUpdate({ $push: { usersVotes: userId } });
-      averageRating = Math.round(upvotes / usersVotes.length * 100);
-      await Gym.findByIdAndUpdate({ upvotes, usersVotes, averageRating }); // object destructuring or type casting?
+      const newUsersVotes = [...gym.usersVotes, userId];
+      console.log(newUsersVotes);
+      const gymUpdate = await Gym.findByIdAndUpdate(id, { usersVotes: newUsersVotes }, { new: true });
+      console.log(gymUpdate);
+      averageRating = Math.round(upvotes / newUsersVotes.length * 100);
+      await Gym.findByIdAndUpdate(id, { upvotes, averageRating }); // object destructuring or type casting?
     }
     res.redirect(`/gyms/${id}/details`);
   } catch (error) {
