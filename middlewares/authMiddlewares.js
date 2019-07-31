@@ -1,4 +1,5 @@
 'use strict';
+const User = require('../models/User');
 
 const isLoggedIn = (req, res, next) => {
   if (req.session.currentUser) {
@@ -22,8 +23,28 @@ const isFormFilled = (req, res, next) => {
   next();
 };
 
+const isRegistered = async (req, res, next) => {
+  const { username } = req.body;
+  const user = await User.findOne({ username });
+  if (user) {
+    return res.redirect('/auth/signup');
+  }
+  next();
+};
+
+const isNotRegistered = async (req, res, next) => {
+  const { username } = req.body;
+  const user = await User.findOne({ username });
+  if (!user) {
+    return res.redirect('/auth/login');
+  }
+  next();
+};
+
 module.exports = {
   isLoggedIn,
   isNotLoggedIn,
-  isFormFilled
+  isFormFilled,
+  isRegistered,
+  isNotRegistered
 };

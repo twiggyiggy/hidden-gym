@@ -108,7 +108,7 @@ location: String
 description: String
 image: url
 upvotes: number
-totalVotes: number
+usersVotes: number
 averageRating: number
 
 ``` 

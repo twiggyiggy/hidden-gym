@@ -21,18 +21,19 @@ body {
 }
 :root {
   --color: #2D2828;
-  --main-color: white;
-  --secondary-color:  #7c6d63;
-  --tertiary-color: #8CD600;
+  --main-color: #c7af6b;
+  --secondary-color:  white;
+  --tertiary-color: #ff3a22;
 }
 /* 
  --- DROPDOWN MENU ---
 /* Style The Dropdown Button */
 .dropbtn {
-  background-color: var(--secondary-color);
-  color: var(--main-color);
+  background-color: var(--tertiary-color);
+  color: var(--color);
   padding: 16px;
   font-size: 18px;
+  font-family: "Arial Black", Gadget, sans-serif;
   border: none;
   cursor: pointer;
 }
@@ -47,7 +48,7 @@ body {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: var(--main-color);
+  background-color: var(--secondary-color);
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
@@ -170,17 +171,33 @@ p {
   width: 20em
 }
 
-.buttons-section {
+.main-buttons-section.container {
+  background: transparent;
+  box-shadow: none;
+}
+.main-buttons-section {
   display: flex;
   justify-content: space-evenly;
   margin-left: auto;
   margin-right: auto;
   align-items: center;
-  width: 20em;
-  /* background-color: var(--main-color); */
-  /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1; */
+
+  background-color: var(--tertiary-color);
+  box-shadow: 0 5px 0 darkred;
+  color: black;
+  padding: 1em 1.5em;
+  position: relative;
+  text-decoration: none;
 }
+ a.main-buttons-section:hover {
+  background-color: #ce0606;
+}
+
+a.main-buttons-section:active {
+  box-shadow: none;
+  top: 5px;
+}
+
 
 
 
@@ -202,6 +219,8 @@ p {
   vertical-align: middle;
 }
 
+
+
 /* ---- GYMS PAGE ---- */
 .welcome-title {
   display: flex;
@@ -211,13 +230,33 @@ p {
   text-align: center;
   width: 20em;
 }
-/* .details-title {
-  display: inline;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  width: 20em;
+ .details-title {
+  /* display: inline; */
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+  /* text-align: center; */
+  /* width: 20em; */
+  margin: 0 auto;
+  width: 25rem;
+  background: white;
+  padding: 20px;
 }
+h2 {
+  color: white;
+  position: relative;
+  background: black;
+}
+h2:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: -9999px;
+	right: 0;
+	border-left: 9999px solid black;
+	box-shadow: 9999px 0 0 black;
+}
+/*
 .createGym-title {
   display: inline;
   margin-left: auto;

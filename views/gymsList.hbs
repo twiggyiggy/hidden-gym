@@ -19,7 +19,11 @@
             </li>
 
             </li>
-                <p>Rating: {{averageRating}}</p>
+                {{#if averageRating}}
+                    <p>GYM RATING: {{averageRating}}%</p>
+                {{else}}
+                    <p>GYM RATING: No votes yet. Be the first one to rate it!</p>
+                {{/if}}
             </li>
 
         </ul>
