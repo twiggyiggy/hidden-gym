@@ -1,16 +1,26 @@
 <section class="details-title">
   <h2>Hidden Gym- {{address}}</h2>
 </section>
+<div class="details-container">
+<img src="{{image}}" alt="gym photo" class="rounded-corners">
+</div>
+<section class="upvote-buttons-section container">
+    <section class="upvote-buttons-section">
+        <form action="/gyms/{{id}}/details/yes" method="POST">
+            <button type="submit">UPVOTE!</button>
+        </form>
+    </section>
+    <section class="downvote-buttons-section">
+        <form action="/gyms/{{id}}/details/no" method="POST">
+            <button type="submit">DOWNVOTE!</button>
+        </form>
+    </section>
+</section>
 
-<img src="{{image}}" alt="gym photo">
-<form action="/gyms/{{id}}/details/yes" method="POST">
-    <button type="submit">Upvote!</button>
-</form>
-<form action="/gyms/{{id}}/details/no" method="POST">
-    <button type="submit">Downvote!</button>
-</form>
 <h3>EQUIPMENT:</h3>
-<li>{{equipmentAvailable}}</li>
+{{#each equipmentAvailable}}
+    <p>{{equipmentAvailable}}</p>
+{{/each}}
 
 </h3>
 <h3>ADDITIONAL INFO:</h3>

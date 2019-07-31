@@ -2,10 +2,10 @@
      <div>
     <h2>Welcome, {{currentUser.username}}!</h2>
      </div>
-     <div style="flex-shrink: 0">
+     {{!-- <div style="flex-shrink: 0">
     <p>Create, Rate, and Discover Hidden Gym</p>
 
-     </div>
+     </div> --}}
  </section>
 
 <h1> HIDDEN GYMS IN BARCELONA- </h1>
@@ -13,17 +13,20 @@
 <section class="gyms-list-gallery">
     {{#each gyms}}
     <a class="this-gym-details" href="/gyms/{{_id}}/details">
-    <h3>{{address}}</h3>
+    <h1>{{address}}</h1>
         <ul>
             <li>
-                <img src="{{image}}">
+                <article class="image-contain">
+                <img src="{{image}}" >
+                </article>
             </li>
+
 
             </li>
                 {{#if averageRating}}
                     <p>GYM RATING: {{averageRating}}%</p>
                 {{else}}
-                    <p>GYM RATING: No votes yet. Be the first one to rate it!</p>
+                    <p>GYM RATING: No votes yet<br>Be the first one to rate it!</p>
                 {{/if}}
             </li>
 

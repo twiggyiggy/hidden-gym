@@ -1,8 +1,9 @@
 <section class="details-title">
-  <h2>EDIT Hidden Gym- <br> {{address}}</h2>
+  <h2>EDIT Hidden Gym-{{gym.address}}</h2>
 </section>
-
+<div class="details-container">
 <img src="{{gym.image}}" alt="gym photo">
+</div>
 <br>
   <label for="photo">CHANGE IMAGE</label>
   <input style="width:90vw" type="file" name="photo" id="photo" value="{{gym.image}}"/>
