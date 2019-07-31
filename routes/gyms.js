@@ -25,7 +25,21 @@ router.post('/:id/details/delete', async (req, res, next) => {
 });
 /* POST  create-gym */
 router.post('/create', parser.single('photo'), async (req, res, next) => {
-  const { address, additionalInfo, equipmentAvailable } = req.body;
+  const { address,
+    additionalInfo,
+    PullUpBarStation,
+    HorizontalLadder,
+    HandHoldLegLiftStation,
+    TriplePushUpBar,
+    SitUpStation,
+    SweedishWall,
+    ParallelBars,
+    ChinUpStation,
+    BeamJumpStation } = req.body;
+
+  var equipmentAvailable = [];
+  equipmentAvailable.push(PullUpBarStation, HorizontalLadder, HandHoldLegLiftStation, TriplePushUpBar, SitUpStation, SweedishWall, ParallelBars, ChinUpStation, BeamJumpStation);
+
   let image;
   if (req.file !== undefined) {
     image = req.file.secure_url;
@@ -78,8 +92,6 @@ router.post('/:id/details/:answer', async (req, res, next) => {
   }
 });
 
-// await User.findByIdAndUpdate(userId, { $push: { recipes: recipeId } });
-
 /* Get gym Details */
 router.get('/:id/details', async (req, res, next) => {
   try {
@@ -94,7 +106,33 @@ router.get('/:id/details', async (req, res, next) => {
 router.get('/:id/details/edit', async (req, res, next) => {
   try {
     const id = req.params.id;
-    const gym = await Gym.findById(id);
+    let gym = await Gym.findById(id);
+    // create an object with all the keys we need
+    const gymStuff = {
+      PullUpBarStation: false,
+      HorizontalLadder: false,
+      HandHoldLegLiftStation: false,
+      TriplePushUpBar: false,
+      SitUpStation: false,
+      SweedishWall: false,
+      ParallelBars: false,
+      ChinUpStation: false,
+      BeamJumpStation: false
+    };
+    for (const name in gymStuff) {
+      if (gym.equipmentAvailable.includes(name)) {
+        gymStuff[name] = true;
+      }
+    }
+
+    gym = {
+      gym,
+      gymStuff
+    };
+    console.log(gym);
+    // then loop over the object: "", if the key exsists in the array then that prorety is true
+    // if it doesnt exist then its false
+    // send this object down with gym for the inputs
     res.render('updateGym', gym);
   } catch (error) {
     next(error);

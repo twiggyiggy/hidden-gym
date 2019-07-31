@@ -20,8 +20,8 @@ body {
 
 }
 :root {
-  --color: #2D2828;
-  --main-color: #c7af6b;
+  --color: #c7af6b;
+  --main-color: #2D2828;
   --secondary-color:  white;
   --tertiary-color: #ff3a22;
 }
@@ -29,7 +29,7 @@ body {
  --- DROPDOWN MENU ---
 /* Style The Dropdown Button */
 .dropbtn {
-  background-color: var(--tertiary-color);
+  background-color: var(--main-color);
   color: var(--color);
   padding: 16px;
   font-size: 18px;
@@ -62,7 +62,7 @@ body {
   display: block;
 }
 
-/* Change color on hover */
+/* Changes color on hover */
 .dropdown-content a:hover {
   background-color: var(--tertiary-color)
 }
@@ -76,52 +76,11 @@ body {
 .dropdown:hover .dropbtn {
   background-color: var(--tertiary-color);
 }
-/* 
-} 
-nav {
-	width: 100%;
-  font-weight: bold;
-  
-}
-nav ul {
-	list-style: none;
-	padding: 0px;	
-  margin: 0px;
-  
-  padding: 14px 25px;
-  text-align: left;
-}
-nav li {
-	position: relative;
-
-	padding: 1px;
-	cursor: pointer;
-}
-nav ul ul {
-	left: 0px;
-	opacity: 0;
-	transition-property: opacity, transform;
-	transition-duration: 100ms, 100ms;
-	transform: translate(0px,-10px);
-	transition-timing-function: ease ease;
-	transition-delay: 200ms;
-}
-nav li li {
-	float: none;
-	padding: 5px 0px;
-}
-nav li:hover ul {
-	transform: translate(0px,0px);
-	opacity: 1;
-} */
 
 
 
 
 /* ---- typography ---- */
-
-
-
 
 h1 {
 
@@ -181,7 +140,7 @@ p {
   margin-left: auto;
   margin-right: auto;
   align-items: center;
-
+  border: none;
   background-color: var(--tertiary-color);
   box-shadow: 0 5px 0 darkred;
   color: black;
@@ -229,6 +188,10 @@ a.main-buttons-section:active {
   margin-right: auto;
   text-align: center;
   width: 20em;
+  margin: 0 auto;
+  width: 25rem;
+  background: var(--tertiary-color);
+  padding: 20px;
 }
  .details-title {
   /* display: inline; */
@@ -238,8 +201,9 @@ a.main-buttons-section:active {
   /* width: 20em; */
   margin: 0 auto;
   width: 25rem;
-  background: white;
+  background: var(--tertiary-color);
   padding: 20px;
+
 }
 h2 {
   color: white;
@@ -336,6 +300,9 @@ a.this-gym-details:hover, a.this-gym-details:active {
     margin: 0 auto;
   }
 }
+
+/* 
+ */
 
 
 

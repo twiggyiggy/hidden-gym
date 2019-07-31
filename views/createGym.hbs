@@ -1,19 +1,55 @@
-<section class="createGym-title">
-<h2>Add a Hidden Gym</h2>
+<section class="details-title">
+<h2>ADD Hidden Gym</h2>
 </section>
 
 <form action="/gyms/create" method="POST" enctype="multipart/form-data">
-  <label for="address">ADDRESS</label>
+  <label for="address">ADDRESS-</label>
   <input style="width:90vw" type="text" name="address" id="address" required>
   <br>
-  <label for="photo">UPLOAD AN IMAGE</label>
+  <label for="photo">UPLOAD AN IMAGE-</label>
   <input type="file" name="photo"/>
   <br>
-  <label for="equipmentAvailable">EQUIPMENT</label>
-  <input style="width:90vw"type="text" name="equipmentAvailable" id="equipmentAvailable">
+  {{!--  --}}
   <br>
-  <label for="additionalInfo">ADDITIONAL INFO</label>
+  
+  <label for="equipmentAvailable">CHECK ALL THE STATIONS AVAILABLE AT THIS PARK-</label>
+  <div>
+  <input type="checkbox" name="PullUpBarStation" id="equipmentAvailable" value="PullUpBarStation" />Pull-Up-Bar Station
+  </div>
+  <div>
+  <input type="checkbox" name="HorizontalLadder" id="equipmentAvailable" value="HorizontalLadder" />Horizontal Ladder
+  </div>
+  <div>
+  <input type="checkbox" name="HandHoldLegLiftStation" id="equipmentAvailable" value="HandHoldLegLiftStation" />Hand-Hold/Leg-Lift Station
+  </div>
+  <div>
+  <input type="checkbox" name="TriplePushUpBar" id="equipmentAvailable" value="TriplePushUpBar" />Triple Push-Up-Bar
+  </div>
+  <div>
+  <input type="checkbox" name="SitUpStation" id="equipmentAvailable" value="SitUpStation" />Sit-Up Station
+  </div>
+  <div>
+  <input type="checkbox" name="SweedishWall" id="equipmentAvailable" value="SweedishWall" />Sweedish Wall
+  </div>
+  <div>
+  <input type="checkbox" name="ParallelBars" id="equipmentAvailable" value="ParallelBars" />Parallel Bars
+  </div>
+  <div>
+  <input type="checkbox" name="ChinUpStation" id="equipmentAvailable" value="ChinUpStation" />Chin-Up Station
+  </div>
+  <div>
+  <input type="checkbox" name="BeamJumpStation" id="equipmentAvailable" value="BeamJumpStation" />Beam Jump Station
+  </div>
+ 
+  {{!-- <select id="equipmentAvailable" style="width:90vw" class="form-control" multiple="multiple" name="equipmentAvailable[]"> --}}
+    
+
+
+  <br>
+  <label for="additionalInfo">ADDITIONAL INFO-</label>
   <input style="width:90vw" type="text" name="additionalInfo" id="additionalInfo">
   <br>
   <button type="submit">ADD!</button>
 </form>
+<script src="/javascripts/box-check.js"></script>
+

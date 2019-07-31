@@ -1,29 +1,59 @@
 <section class="details-title">
-  <h2>Edit Hidden Gym- {{address}}</h2>
+  <h2>EDIT Hidden Gym- <br> {{address}}</h2>
 </section>
 
-<img src="{{image}}" alt="gym photo">
+<img src="{{gym.image}}" alt="gym photo">
+<br>
+  <label for="photo">CHANGE IMAGE</label>
+  <input style="width:90vw" type="file" name="photo" id="photo" value="{{gym.image}}"/>
+  <br>
 <h3>EQUIPMENT:</h3>
-<li>{{equipmentAvailable}}</li>
+<li>{{gym.equipmentAvailable}}</li>
 </h3>
 <h3>ADDITIONAL INFO:</h3>
-<li>{{additionalInfo}}</li>
+<li>{{gym.additionalInfo}}</li>
 
-<p>RATING: {{averageRating}}</p>
-<p>CREATED BY: {{creator}}</p>
+<h3>RATING: {{gym.averageRating}}</h3>
+<h3>CREATED BY: {{gym.creator}}</h3>
 
-<form action="/gyms/{{_id}}/details/edit" method="POST" enctype="multipart/form-data">
+<form action="/gyms/{{gym._id}}/details/edit" method="POST" enctype="multipart/form-data">
   <label for="address">EDIT ADDRESS</label>
-  <input type="text" name="address" id="address" value="{{address}}">
-  <br>
-  <label for="photo">NEW IMAGE</label>
-  <input type="file" name="photo" id="photo" value="{{image}}"/>
-  <br>
+  <input style="width:90vw" type="text" name="address" id="address" value="{{gym.address}}">
+<br>
   <label for="equipmentAvailable">EDIT EQUIPMENT</label>
-  <input type="text" name="equipmentAvailable" id="equipmentAvailable" value="{{equipmentAvailable}}">
+
+  <label for="equipmentAvailable">CHECK ALL THE STATIONS AVAILABLE AT THIS PARK-</label>
+  <div>
+
+  <input type="checkbox" name="PullUpBarStation" class="equipmentAvailable" {{#if gymStuff.PullUpBarStation}}checked{{/if}} />Pull-Up-Bar Station
+  </div>
+  <div>
+  <input type="checkbox" name="HorizontalLadder" class="equipmentAvailable" {{#if gymStuff.HorizontalLadder}}checked{{/if}} />Horizontal Ladder
+  </div>
+  <div>
+  <input type="checkbox" name="HandHoldLegLiftStation" class="equipmentAvailable" {{#if gymStuff.HandHoldLegLiftStation}}checked{{/if}} />Hand-Hold/Leg-Lift Station
+  </div>
+  <div>
+  <input type="checkbox" name="TriplePushUpBar" class="equipmentAvailable" {{#if gymStuff.TriplePushUpBar}}checked{{/if}} />Triple Push-Up-Bar
+  </div>
+  <div>
+  <input type="checkbox" name="SitUpStation" class="equipmentAvailable" {{#if gymStuff.SitUpStation}}checked{{/if}} />Sit-Up Station
+  </div>
+  <div>
+  <input type="checkbox" name="SweedishWall" class="equipmentAvailable" {{#if gymStuff.SweedishWall}}checked{{/if}} />Sweedish Wall
+  </div>
+  <div>
+  <input type="checkbox" name="ParallelBars" class="equipmentAvailable" {{#if gymStuff.ParallelBars}}checked{{/if}} />Parallel Bars
+  </div>
+  <div>
+  <input type="checkbox" name="ChinUpStation" class="equipmentAvailable" {{#if gymStuff.ChinUpStation}}checked{{/if}} />Chin-Up Station
+  </div>
+  <div>
+  <input type="checkbox" name="BeamJumpStation" class="equipmentAvailable" {{#if gymStuff.BeamJumpStation}}checked{{/if}} />Beam Jump Station
+  </div>
   <br>
   <label for="additionalInfo">ADDITIONAL INFO</label>
-  <input type="text" name="additionalInfo" id="additionalInfo" value="{{additionalInfo}}">
+  <input style="width:90vw" type="text" name="additionalInfo" id="additionalInfo" value="{{additionalInfo}}">
   <br>
   <button type="submit">UPDATE!</button>
 </form>
