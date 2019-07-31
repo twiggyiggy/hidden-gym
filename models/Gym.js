@@ -20,7 +20,6 @@ const gymSchema = new Schema({
       type: ObjectId,
       ref: 'User'
     }]
-    // default: 0
   },
   averageRating: {
     type: Number,
