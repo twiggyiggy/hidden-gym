@@ -7,12 +7,15 @@ html {
 }
 *, *:before, *:after {
   box-sizing: inherit;
+  
 }
+
+
 
 
 body {
   color: var(--secondary-color);
-  font-family: "Arial Black", Gadget, sans-serif;
+  font-family: 'Press Start 2P', cursive;
   font-size: 16px;
   background-image: url("../images/backgroundtexture.jpg");
   background-repeat: repeat;
@@ -27,8 +30,21 @@ body {
   --secondary-color: whitesmoke;
   --tertiary-color: darkred;
 }
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  background: 
+}
 
 
+form label {
+	font-size:19px;
+  color: black;
+  background: #bbb;
+	cursor:pointer;
+}
 
 
 
@@ -43,7 +59,12 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+.page-header img {
+  height: 50px;
+  margin-right: 10px;
+  margin-top: 2px;
 
+}
 
 
 
@@ -52,24 +73,21 @@ body {
 
 
 /* 
- --- DROPDOWN MENU ---
-/* Style The Dropdown Button */
+ /* --- DROPDOWN MENU --- */
 .dropbtn {
   background-color: var(--secondary-color);
   color: var(--main-color);
   padding: 16px;
   font-size: 18px;
-  font-family: "Arial Black", Gadget, sans-serif;
+  font-family: 'Aldrich', sans-serif;
   border: none;
   cursor: pointer;
 }
-
-/* The container <div> -positions it */
+/*  container <div> -positions it */
 .dropdown {
   position: relative;
   display: inline-block;
 }
-
 /* content in the dropdown */
 .dropdown-content {
   display: none;
@@ -88,13 +106,13 @@ body {
   display: block;
 }
 
-/* Changes color on hover */
+/*  color on hover */
 .dropdown-content a:hover {
   background-color: var(--tertiary-color);
   color: var(--secondary-color);
 }
 
-/* Show the dropdown on hover */
+/* the dropdown on hover */
 .dropdown:hover .dropdown-content {
   display: block;
 }
@@ -115,8 +133,6 @@ font-size: x-large;
 
 h2 {
   color: var(--tertiary-color);
-  
-  
 }
 
 h3 {
@@ -133,13 +149,7 @@ p {
 
 
 /* ---- SPLASH PAGE ---- */
-/* .wrapper {
-  background-image: url("https://slack-imgs.com/?c=1&o1=ro&url=http%3A%2F%2Fholdenoberbuergermeister.de%2Fwp-content%2Fuploads%2F540_geodir_photo_Barcelona-Spanish-Course-461.jpg");
-  background-repeat: no-repeat;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-} */
+
 .img-splash {
   display: flex;
   margin-left: auto;
@@ -162,7 +172,21 @@ img.rounded-corners {
   text-align: center;
   width: 20em
 }
+@keyframes slide {
+  0%, 100% { transform: rotate(-30deg); }
+  20% {transform:scale(.95);}
+  50% { transform: rotate(30deg); }
+  80% {transform:scale(.95);}
+}
 
+#GemAnimation {
+  animation: slide 2s infinite ease-in-out;
+}
+
+.event{
+  margin:50px auto;
+  text-align:center;
+}
 .main-buttons-section.container {
   background: transparent;
   box-shadow: none;
@@ -174,9 +198,9 @@ img.rounded-corners {
   margin-right: auto;
   align-items: center;
   border: none;
-  background-color: var(--tertiary-color);
-  box-shadow: 0 5px 0 darkred;
-  color: black;
+  background-color: #c1272e;
+  box-shadow: 0 5px 0 black;
+  color: whitesmoke;
   padding: 1em 1.5em;
   position: relative;
   text-decoration: none;
@@ -187,6 +211,7 @@ img.rounded-corners {
 
 a.main-buttons-section:active {
   box-shadow: none;
+  color: rgb(109, 109, 39);
   top: 5px;
 }
 
@@ -200,6 +225,8 @@ a.main-buttons-section:active {
   margin-right: auto;
   text-align: center;
   width: 20em;
+      color: black;
+      background: transparent;
 }
 #parent_login_signup {
   display: table;
@@ -209,6 +236,73 @@ a.main-buttons-section:active {
 #form_login_signup { 
   display: table-cell;
   vertical-align: middle;
+  margin:10% auto 0 auto;
+	padding:30px;
+	width:400px;
+	height:auto;
+  overflow: hidden;
+  background: #c1272e;
+  box-shadow: 0 37px 0 black;
+	border-radius:20px;
+}
+#form_login_signup label {
+	font-size:14px;
+	color:black;
+	cursor:pointer;
+}
+
+#form_login_signup label,
+#form_login_signup input {
+	float:left;
+	clear:both;
+}
+#form_login_signup input {
+	margin:15px 0;
+	padding:15px 10px;
+	width:100%;
+	outline:none;
+	border:1px solid #bbb;
+	border-radius:20px;
+  display:inline-block;
+	-webkit-box-sizing:border-box;
+	   -moz-box-sizing:border-box;
+	        box-sizing:border-box;
+    -webkit-transition:0.2s ease all;
+	   /* -moz-transition:0.2s ease all;
+	    -ms-transition:0.2s ease all;
+	     -o-transition:0.2s ease all;
+	        transition:0.2s ease all; */
+}
+
+#form_login_signup input[type=text]:focus,
+#form_login_signup input[type="password"]:focus {
+	border-color:cornflowerblue;
+}
+
+button[type=submit] {
+	padding:15px 50px;
+	width:auto;
+  background: black;
+  font-family: 'Press Start 2P', cursive;
+	border:none;
+	color:white;
+	cursor:pointer;
+	display:inline-block;
+	float:right;
+	clear:right;
+	-webkit-transition:0.2s ease all;
+	   -moz-transition:0.2s ease all;
+	    -ms-transition:0.2s ease all;
+	     -o-transition:0.2s ease all;
+	        transition:0.2s ease all;
+}
+
+button[type=submit]:hover {
+	opacity:0.8;
+}
+
+button[type="submit"]:active {
+	opacity:0.4;
 }
 
 
@@ -223,13 +317,13 @@ a.main-buttons-section:active {
   width: 100%;
   margin: 0 auto;
   
-  background: var(--tertiary-color);
+  background: #8b00009c;
   padding: 20px;
 }
  .details-title {
   margin: 0 auto;
   width: 100%;
-  background: var(--tertiary-color);
+  background: #8b00009c;
   padding: 20px;
 
 }
@@ -273,7 +367,9 @@ h2:before {
 
 .gyms-list-gallery img {
   min-width: 100%;
-  height: 400px;
+  height: 238px;
+  border-radius:20px;
+}
 }
 .image-contain {
   overflow: hidden;
@@ -287,18 +383,19 @@ h2:before {
 
 /* ---- GYM DETAILS ---- */
 a.this-gym-details:link, a.this-gym-details:visited {
-  background-color: #2d2828ba;
-  border: 3px solid var(--main-color);
-  color: var(--secondary-color);
-  
+  background-color: #2d2828f0;
+  border: 1px solid var(--main-color);
+  color: silver;
+ 
   text-align: center;
   text-decoration: none;
   display: inline-block;
 }
 
 a.this-gym-details:hover, a.this-gym-details:active {
-  background-color: #8b00005e;
-  color: var(--secondary-color)
+  
+  background-color: black;
+  color: yellowgreen;
 }
 
 
@@ -342,7 +439,7 @@ a.this-gym-details:hover, a.this-gym-details:active {
   background: transparent;
   display: flex;
   box-shadow: none;
-  font-family: "Arial Black", Gadget, sans-serif;
+  font-family: 'Aldrich', sans-serif;
 }
 .upvote-buttons-section {
   display: flex;
@@ -351,10 +448,10 @@ a.this-gym-details:hover, a.this-gym-details:active {
   margin-right: auto;
   align-items: center;
   border: none;
-  background: silver;
-  box-shadow: 0 5px 0 darkred;
+  background: greenyellow;
+  box-shadow: 0 5px 0 black;
   color: black;
-  font-family: "Arial Black", Gadget, sans-serif;
+  font-family: 'Aldrich', sans-serif;
   padding: 0.5em 0.5em;
   position: relative;
   text-decoration: none;
@@ -366,8 +463,8 @@ a.this-gym-details:hover, a.this-gym-details:active {
   margin-right: auto;
   align-items: center;
   border: none;
-  background: silver;
-  box-shadow: 0 5px 0 darkred;
+  background:red;
+  box-shadow: 0 5px 0 black;
   color: black;
   
   padding: 0.5em 0.5em;
