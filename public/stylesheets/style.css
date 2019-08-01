@@ -42,7 +42,7 @@ input {
 form label {
 	font-size:19px;
   color: black;
-  background: #bbb;
+  background: white;
   padding: 0.5%;
 	cursor:pointer;
 }
@@ -149,7 +149,7 @@ img.rounded-corners {
   background: #c1272e;
   box-shadow: 0 37px 0 black;
   border-radius:20px;
-  border: 0.5px solid black;
+  border: 3px solid black;
 }
 #form_login_signup label {
 	font-size:14px;
@@ -169,7 +169,7 @@ img.rounded-corners {
   font-family: 'Press Start 2P', cursive;
   background: #8b7171e6;
   border: 2px solid black;
-  color: lightgrey;
+  color: #d0cdcd;
   text-transform: uppercase;
   border-radius: 9px;
   display:inline-block;
