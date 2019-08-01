@@ -1,32 +1,29 @@
 <section class="details-title">
-  <h2>Hidden Gym- {{address}}</h2>
+  <h2>Hidden Gym- {{gym.address}}</h2>
 </section>
 <div class="details-container">
-<img src="{{image}}" alt="gym photo" class="rounded-corners">
+<img src="{{gym.image}}" alt="gym photo" class="rounded-corners">
 </div>
 <section class="upvote-buttons-section container">
     <section class="upvote-buttons-section">
-        <form action="/gyms/{{id}}/details/yes" method="POST">
+        <form action="/gyms/{{gym.id}}/details/yes" method="POST">
             <button type="submit">UPVOTE!</button>
         </form>
     </section>
     <section class="downvote-buttons-section">
-        <form action="/gyms/{{id}}/details/no" method="POST">
+        <form action="/gyms/{{gym.id}}/details/no" method="POST">
             <button type="submit">DOWNVOTE!</button>
         </form>
     </section>
 </section>
 <section class="this-gym-display">
     <h3>EQUIPMENT:</h3>
-    <li>{{equipmentAvailable}}</li>
-
-
-    </h3>
+    <li>{{newEquipmentList}}</li>
     <h3>ADDITIONAL INFO:</h3>
-    <li>{{additionalInfo}}</li>
-    {{#if averageRating}}
+    <li>{{gym.additionalInfo}}</li>
+    {{#if gym.averageRating}}
     <h3>GYM RATING:</h3>
-    <li>{{averageRating}}%</li>
+    <li>{{gym.averageRating}}%</li>
     {{else}}
     <h3>GYM RATING:</h3>
     <li> No votes yet. Be the first one to rate it!</li>
@@ -34,8 +31,8 @@
     <h3>CREATED BY:</h3>
     <li>{{creator}}</li>
 <section class="edit-delete-buttons container">
-    <a class="edit-buttons-section" href="/gyms/{{_id}}/details/edit">EDIT THIS HIDDEN GYM</a>
-<form class="edit-buttons-section"action="/gyms/{{_id}}/details/delete" method="POST">
+    <a class="edit-buttons-section" href="/gyms/{{gym._id}}/details/edit">EDIT THIS HIDDEN GYM</a>
+<form class="edit-buttons-section"action="/gyms/{{gym._id}}/details/delete" method="POST">
     <button type="submit">DELETE</button>
 </form>
 </section>

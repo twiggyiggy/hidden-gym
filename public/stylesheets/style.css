@@ -149,7 +149,7 @@ img.rounded-corners {
   background: #c1272e;
   box-shadow: 0 37px 0 black;
   border-radius:20px;
-  border: 3px solid black;
+  border: 2px solid black;
 }
 #form_login_signup label {
 	font-size:14px;
@@ -295,8 +295,14 @@ h3 {
 }
 
 p {
-  margin: 10px;
+  margin: 16px;
   color: var(--secondary-color)
+}
+
+li {
+  line-height: 27px;
+  background: #3a3a3a;
+  
 }
 
 
@@ -475,12 +481,19 @@ a.this-gym-details:hover, a.this-gym-details:active {
   margin-right: auto;
   align-items: center;
   border: none;
-  background-color: grey;
-  
   color:  #c1272e;
   padding: 1em 1.5em;
   position: relative;
   text-decoration: none;
+}
+input[type="file" i] {
+  background: darkgrey;
+}
+
+a.edit-buttons-section {
+  background-color:#808080d1;
+  
+  
 }
  a.edit-buttons-section:hover {
  
@@ -500,9 +513,9 @@ a.edit-buttons-section:active {
 	width:100%;
   outline:none;
   font-family: 'Press Start 2P', cursive;
-  background: lightgrey;
+  background: whitesmoke;
   text-decoration: underline;
-  color: #c1272e;
+  color: black
   text-transform: uppercase;
   border-radius: 9px;
   display:inline-block;

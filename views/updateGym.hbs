@@ -1,5 +1,11 @@
 <section class="details-title">
-  <h2>EDIT Hidden Gym-{{gym.address}}</h2>
+
+  <h2>EDIT-{{gym.address}}</h2>
+  {{#if gym.averageRating}}
+    <h3>GYM RATING: {{gym.averageRating}}%</h3>
+    {{else}}
+    <h3>GYM RATING: 0%</h3>
+    {{/if}}
 </section>
 <div class="details-container">
 <img src="{{gym.image}}" alt="gym photo">
@@ -7,26 +13,19 @@
 <br>
   <label for="photo">CHANGE IMAGE</label>
   <input style="width:90vw" type="file" name="photo" id="photo" value="{{gym.image}}"/>
-  <br>
-<h3>EQUIPMENT:</h3>
-<li>{{gym.equipmentAvailable}}</li>
-</h3>
-<h3>ADDITIONAL INFO:</h3>
-<li>{{gym.additionalInfo}}</li>
-
-<h3>RATING:</h3>
-<li>{{gym.averageRating}}%</li>
-<h3>CREATED BY: </h3>
-<li>{{gym.creator}}</li>
 
 <form id="edit-fields" action="/gyms/{{gym._id}}/details/edit" method="POST" enctype="multipart/form-data">
   <label for="address">EDIT ADDRESS</label>
   <input style="width:90vw" type="text" name="address" id="address" value="{{gym.address}}">
+  <br>
 <br>
+
+
+
   <label for="equipmentAvailable">EDIT EQUIPMENT</label>
   <br>
   <br>
-  <label for="equipmentAvailable">CHECK ALL THE STATIONS AVAILABLE AT THIS PARK-</label>
+  <label class="container" for="equipmentAvailable">CHECK ALL THE STATIONS AVAILABLE AT THIS PARK-</label>
   <div>
 
   <input type="checkbox" name="PullUpBarStation" class="equipmentAvailable" {{#if gymStuff.PullUpBarStation}}checked{{/if}} />Pull-Up-Bar Station
@@ -55,6 +54,7 @@
   <div>
   <input type="checkbox" name="BeamJumpStation" class="equipmentAvailable" {{#if gymStuff.BeamJumpStation}}checked{{/if}} />Beam Jump Station
   </div>
+
   <br>
   <label for="additionalInfo">MORE ADDITIONAL INFO?</label>
   <input style="width:90vw" type="text" name="additionalInfo" id="additionalInfo" value="{{additionalInfo}}">

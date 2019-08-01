@@ -97,7 +97,14 @@ router.post('/:id/details/:answer', async (req, res, next) => {
 router.get('/:id/details', async (req, res, next) => {
   try {
     const id = req.params.id;
-    const gym = await Gym.findById(id);
+    let gym = await Gym.findById(id);
+    console.log(gym);
+    const newEquipmentList = gym.equipmentAvailable.filter(station => station !== '' && station).join(' ');
+    gym = {
+      gym,
+      newEquipmentList
+    };
+    console.log(gym);
     res.render('gymDetails', gym);
   } catch (error) {
     next(error);
