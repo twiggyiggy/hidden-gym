@@ -16,23 +16,27 @@
         </form>
     </section>
 </section>
+<section class="this-gym-display">
+    <h3>EQUIPMENT:</h3>
+    <li>{{equipmentAvailable}}</li>
 
-<h3>EQUIPMENT:</h3>
-<li>{{equipmentAvailable}}</li>
 
-
-</h3>
-<h3>ADDITIONAL INFO:</h3>
-<li>{{additionalInfo}}</li>
-{{#if averageRating}}
-<h3>GYM RATING: {{averageRating}}%</h3>
-{{else}}
-<h3>GYM RATING: No votes yet. Be the first one to rate it!</h3>
-{{/if}}
-<h3>CREATED BY: {{creator}}</h3>
-
-<a href="/gyms/{{_id}}/details/edit">EDIT</a>
-
-<form action="/gyms/{{_id}}/details/delete" method="POST">
+    </h3>
+    <h3>ADDITIONAL INFO:</h3>
+    <li>{{additionalInfo}}</li>
+    {{#if averageRating}}
+    <h3>GYM RATING:</h3>
+    <li>{{averageRating}}%</li>
+    {{else}}
+    <h3>GYM RATING:</h3>
+    <li> No votes yet. Be the first one to rate it!</li>
+    {{/if}}
+    <h3>CREATED BY:</h3>
+    <li>{{creator}}</li>
+<section class="edit-delete-buttons container">
+    <a class="edit-buttons-section" href="/gyms/{{_id}}/details/edit">EDIT THIS HIDDEN GYM</a>
+<form class="edit-buttons-section"action="/gyms/{{_id}}/details/delete" method="POST">
     <button type="submit">DELETE</button>
 </form>
+</section>
+</section>

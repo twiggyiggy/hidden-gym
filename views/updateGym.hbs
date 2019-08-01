@@ -14,15 +14,18 @@
 <h3>ADDITIONAL INFO:</h3>
 <li>{{gym.additionalInfo}}</li>
 
-<h3>RATING: {{gym.averageRating}}</h3>
-<h3>CREATED BY: {{gym.creator}}</h3>
+<h3>RATING:</h3>
+<li>{{gym.averageRating}}%</li>
+<h3>CREATED BY: </h3>
+<li>{{gym.creator}}</li>
 
-<form action="/gyms/{{gym._id}}/details/edit" method="POST" enctype="multipart/form-data">
+<form id="edit-fields" action="/gyms/{{gym._id}}/details/edit" method="POST" enctype="multipart/form-data">
   <label for="address">EDIT ADDRESS</label>
   <input style="width:90vw" type="text" name="address" id="address" value="{{gym.address}}">
 <br>
   <label for="equipmentAvailable">EDIT EQUIPMENT</label>
-
+  <br>
+  <br>
   <label for="equipmentAvailable">CHECK ALL THE STATIONS AVAILABLE AT THIS PARK-</label>
   <div>
 
@@ -53,7 +56,7 @@
   <input type="checkbox" name="BeamJumpStation" class="equipmentAvailable" {{#if gymStuff.BeamJumpStation}}checked{{/if}} />Beam Jump Station
   </div>
   <br>
-  <label for="additionalInfo">ADDITIONAL INFO</label>
+  <label for="additionalInfo">MORE ADDITIONAL INFO?</label>
   <input style="width:90vw" type="text" name="additionalInfo" id="additionalInfo" value="{{additionalInfo}}">
   <br>
   <button type="submit">UPDATE!</button>

@@ -43,7 +43,170 @@ form label {
 	font-size:19px;
   color: black;
   background: #bbb;
+  padding: 0.5%;
 	cursor:pointer;
+}
+
+/* SPLASH
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.titles-splash {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 20em
+}
+@keyframes slide {
+  0%, 100% { transform: rotate(-30deg); }
+  20% {transform:scale(.95);}
+  50% { transform: rotate(30deg); }
+  80% {transform:scale(.95);}
+}
+#GemAnimation {
+  animation: slide 2s infinite ease-in-out;
+}
+.event{
+  margin:50px auto;
+  text-align:center;
+}
+.main-buttons-section.container {
+  background: transparent;
+  box-shadow: none;
+}
+.main-buttons-section {
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  border: none;
+  background-color:#bc232a;
+  box-shadow: 0 5px 0 black;
+  color: whitesmoke;
+  padding: 1em 1.5em;
+  position: relative;
+  text-decoration: none;
+}
+ a.main-buttons-section:hover {
+  color: yellowgreen;
+  background-color: #c1272e;
+}
+
+a.main-buttons-section:active {
+  box-shadow: none;
+  color: yellowgreen;
+  top: 5px;
+}
+
+
+/* ---- 
+SPLASH PAGE ---- */
+.img-splash {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%; 
+  height: 50%; 
+  object-fit: contain; 
+
+}
+img.rounded-corners {
+
+  border-radius: 30px;
+
+}
+
+
+
+
+/* 
+---- LOGIN AND SIGN UP PAGES ---- */
+.login-signup-display {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 20em;
+  color: black;
+  background: transparent;
+}
+.login-signup-display a{
+  color: yellowgreen;
+  font-size: xx-small;
+}
+#parent_login_signup {
+  display: table;
+  width: 100%;
+}
+#form_login_signup { 
+  display: table-cell;
+  vertical-align: middle;
+  margin:10% auto 0 auto;
+	padding:30px;
+	width:400px;
+	height:auto;
+  overflow: hidden;
+  background: #c1272e;
+  box-shadow: 0 37px 0 black;
+  border-radius:20px;
+  border: 0.5px solid black;
+}
+#form_login_signup label {
+	font-size:14px;
+	color:black;
+	cursor:pointer;
+}
+#form_login_signup label,
+#form_login_signup input {
+	float:left;
+	clear:both;
+}
+#form_login_signup input {
+	margin:15px 0;
+	padding:15px 10px;
+	width:100%;
+  outline:none;
+  font-family: 'Press Start 2P', cursive;
+  background: #8b7171e6;
+  border: 2px solid black;
+  color: lightgrey;
+  text-transform: uppercase;
+  border-radius: 9px;
+  display:inline-block;
+	box-sizing:border-box;
+	transition:0.2s ease all;
+}
+#form_login_signup input[type=text]:focus,
+#form_login_signup input[type="password"]:focus {
+  border:2px solid black;;
+  font-family: 'Press Start 2P', cursive;
+}
+
+button[type=submit] {
+  display: flex;
+  font-family: 'Press Start 2P', cursive;
+  justify-content: space-evenly;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  border: none;
+  background-color: #bbb;
+  box-shadow: 0 5px 0 var(--main-color);
+  color: var(--main-color);
+  padding: 1em 1.5em;
+  position: relative;
+  text-decoration: none;
+  transition:0.2s ease all;
+}
+
+button[type=submit]:hover {
+  background-color:  #bbb;
+}
+
+button[type="submit"]:active {
+  box-shadow: none;
+  background-color: #bbb;
+  top: 5px;
 }
 
 
@@ -63,23 +226,15 @@ form label {
   height: 50px;
   margin-right: 10px;
   margin-top: 2px;
-
 }
-
-
-
-
-
-
-
-/* 
+/* ---------------------------------
  /* --- DROPDOWN MENU --- */
-.dropbtn {
+ .dropbtn {
   background-color: var(--secondary-color);
   color: var(--main-color);
   padding: 16px;
-  font-size: 18px;
-  font-family: 'Aldrich', sans-serif;
+  font-size: 25px;
+  font-family: 'Press Start 2P', cursive;
   border: none;
   cursor: pointer;
 }
@@ -97,35 +252,33 @@ form label {
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
-
 /* Links inside the dropdown */
 .dropdown-content a {
-  color: black;
+  background-color: var(--secondary-color);
+  color: var(--main-color);
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
-
 /*  color on hover */
 .dropdown-content a:hover {
-  background-color: var(--tertiary-color);
-  color: var(--secondary-color);
+  background-color: var(--main-color);
+  color: yellowgreen;
 }
-
 /* the dropdown on hover */
 .dropdown:hover .dropdown-content {
   display: block;
 }
-
 /* Change the bg of dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
-  background-color: var(--tertiary-color);
+  background-color: var(--main-color);
+  color: var(--secondary-color);
 }
 
 
 
-
-/* ---- typography ---- */
+/* 
+---- typography ---- */
 
 h1 {
 font-size: x-large;
@@ -137,7 +290,8 @@ h2 {
 
 h3 {
   color: var(--main-color);
-  background: var(--secondary-color)
+  background: var(--secondary-color);
+  padding: 10px;
 }
 
 p {
@@ -146,168 +300,7 @@ p {
 }
 
 
-
-
-/* ---- SPLASH PAGE ---- */
-
-.img-splash {
-  display: flex;
-  margin-left: auto;
-  margin-right: auto;
-
-  width: 50%; 
-  height: 50%; 
-  object-fit: contain; 
-
-}
-img.rounded-corners {
-
-  border-radius: 30px;
-
-}
-.titles-splash {
-  display: flex;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  width: 20em
-}
-@keyframes slide {
-  0%, 100% { transform: rotate(-30deg); }
-  20% {transform:scale(.95);}
-  50% { transform: rotate(30deg); }
-  80% {transform:scale(.95);}
-}
-
-#GemAnimation {
-  animation: slide 2s infinite ease-in-out;
-}
-
-.event{
-  margin:50px auto;
-  text-align:center;
-}
-.main-buttons-section.container {
-  background: transparent;
-  box-shadow: none;
-}
-.main-buttons-section {
-  display: flex;
-  justify-content: space-evenly;
-  margin-left: auto;
-  margin-right: auto;
-  align-items: center;
-  border: none;
-  background-color: #c1272e;
-  box-shadow: 0 5px 0 black;
-  color: whitesmoke;
-  padding: 1em 1.5em;
-  position: relative;
-  text-decoration: none;
-}
- a.main-buttons-section:hover {
-  background-color: #ce0606;
-}
-
-a.main-buttons-section:active {
-  box-shadow: none;
-  color: rgb(109, 109, 39);
-  top: 5px;
-}
-
-
-
-
-/* ---- LOGIN AND SIGN UP PAGES ---- */
-.login-signup-display {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  width: 20em;
-      color: black;
-      background: transparent;
-}
-#parent_login_signup {
-  display: table;
-  width: 100%;
-}
-
-#form_login_signup { 
-  display: table-cell;
-  vertical-align: middle;
-  margin:10% auto 0 auto;
-	padding:30px;
-	width:400px;
-	height:auto;
-  overflow: hidden;
-  background: #c1272e;
-  box-shadow: 0 37px 0 black;
-	border-radius:20px;
-}
-#form_login_signup label {
-	font-size:14px;
-	color:black;
-	cursor:pointer;
-}
-
-#form_login_signup label,
-#form_login_signup input {
-	float:left;
-	clear:both;
-}
-#form_login_signup input {
-	margin:15px 0;
-	padding:15px 10px;
-	width:100%;
-	outline:none;
-	border:1px solid #bbb;
-	border-radius:20px;
-  display:inline-block;
-	-webkit-box-sizing:border-box;
-	   -moz-box-sizing:border-box;
-	        box-sizing:border-box;
-    -webkit-transition:0.2s ease all;
-	   /* -moz-transition:0.2s ease all;
-	    -ms-transition:0.2s ease all;
-	     -o-transition:0.2s ease all;
-	        transition:0.2s ease all; */
-}
-
-#form_login_signup input[type=text]:focus,
-#form_login_signup input[type="password"]:focus {
-	border-color:cornflowerblue;
-}
-
-button[type=submit] {
-	padding:15px 50px;
-	width:auto;
-  background: black;
-  font-family: 'Press Start 2P', cursive;
-	border:none;
-	color:white;
-	cursor:pointer;
-	display:inline-block;
-	float:right;
-	clear:right;
-	-webkit-transition:0.2s ease all;
-	   -moz-transition:0.2s ease all;
-	    -ms-transition:0.2s ease all;
-	     -o-transition:0.2s ease all;
-	        transition:0.2s ease all;
-}
-
-button[type=submit]:hover {
-	opacity:0.8;
-}
-
-button[type="submit"]:active {
-	opacity:0.4;
-}
-
-
-
-/* ---- GYMS LIST PAGE ---- */
+/* ---- GYMS LIST HEADER ---- */
 .welcome-title {
   display: flex;
   flex-flow: row wrap;
@@ -344,11 +337,10 @@ h2:before {
 	box-shadow: 9999px 0 0 black;
 }
 
-
+/* 
+---- GYM LIST IMAGE ---- */
 .gyms-list-gallery {
   display: grid;
-
-
 }
 .gyms-list-gallery ul {
   display: flex;
@@ -356,20 +348,16 @@ h2:before {
   list-style: none;
   padding: 0%; 
   margin: 0%;
-  
 }
 .gyms-list-gallery li {
   padding: 0%; 
   margin: 0%;
   width:350px;
-  
 }
-
 .gyms-list-gallery img {
   min-width: 100%;
   height: 238px;
   border-radius:20px;
-}
 }
 .image-contain {
   overflow: hidden;
@@ -381,12 +369,12 @@ h2:before {
 
 
 
-/* ---- GYM DETAILS ---- */
+/* 
+---- GYM LIST DETAILS ---- */
 a.this-gym-details:link, a.this-gym-details:visited {
   background-color: #2d2828f0;
   border: 1px solid var(--main-color);
   color: silver;
- 
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -398,10 +386,6 @@ a.this-gym-details:hover, a.this-gym-details:active {
   color: yellowgreen;
 }
 
-
-
-
-
 @media (min-width: 768px) {
   .container {
     max-width: 728px;
@@ -409,7 +393,8 @@ a.this-gym-details:hover, a.this-gym-details:active {
   }
 }
 
-/* THIS GYM DETAILS */
+/* 
+------------- SPECIFIC GYM DETAILS */
 
 .details-container {
   width: 100%;
@@ -449,7 +434,7 @@ a.this-gym-details:hover, a.this-gym-details:active {
   align-items: center;
   border: none;
   background: greenyellow;
-  box-shadow: 0 5px 0 black;
+  /* box-shadow: 0 5px 0 black; */
   color: black;
   font-family: 'Aldrich', sans-serif;
   padding: 0.5em 0.5em;
@@ -464,7 +449,7 @@ a.this-gym-details:hover, a.this-gym-details:active {
   align-items: center;
   border: none;
   background:red;
-  box-shadow: 0 5px 0 black;
+  /* box-shadow: 0 5px 0 black; */
   color: black;
   
   padding: 0.5em 0.5em;
@@ -472,7 +457,63 @@ a.this-gym-details:hover, a.this-gym-details:active {
   text-decoration: none;
 }
 
+.this-gym-display a {
+  color: #c1272e;
+  font-size: xx-small;
+  text-decoration: underline;
+}
 
+
+.edit-delete-buttons.container {
+  background: transparent;
+  box-shadow: none;
+}
+.edit-buttons-section {
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  border: none;
+  background-color: grey;
+  
+  color:  #c1272e;
+  padding: 1em 1.5em;
+  position: relative;
+  text-decoration: none;
+}
+ a.edit-buttons-section:hover {
+ 
+  
+  
+}
+
+a.edit-buttons-section:active {
+  box-shadow: none;
+  color: yellowgreen;
+  top: 5px;
+}
+
+#edit-fields input[type=text] {
+	margin:15px 0;
+	padding:15px 10px;
+	width:100%;
+  outline:none;
+  font-family: 'Press Start 2P', cursive;
+  background: lightgrey;
+  text-decoration: underline;
+  color: #c1272e;
+  text-transform: uppercase;
+  border-radius: 9px;
+  display:inline-block;
+	box-sizing:border-box;
+	transition:0.2s ease all;
+}
+
+#edit-fields input[type=text]:focus,
+#edit-fields input[type="password"]:focus {
+  font-family: 'Press Start 2P', cursive;
+}
 
 
 

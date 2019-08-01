@@ -38,6 +38,7 @@ router.post('/create', parser.single('photo'), async (req, res, next) => {
     BeamJumpStation } = req.body;
 
   var equipmentAvailable = [];
+
   equipmentAvailable.push(PullUpBarStation, HorizontalLadder, HandHoldLegLiftStation, TriplePushUpBar, SitUpStation, SweedishWall, ParallelBars, ChinUpStation, BeamJumpStation);
 
   let image;
@@ -101,6 +102,10 @@ router.get('/:id/details', async (req, res, next) => {
   } catch (error) {
     next(error);
   }
+  // function sortList (equipmentAvailable) {
+  //   const newEquipmentList = equipmentAvailable.split(',').filter(station => station !== '' && station).join(' ');
+  //   console.log(newEquipmentList);
+  // }
 });
 /* GET edit gym */
 router.get('/:id/details/edit', async (req, res, next) => {
@@ -108,6 +113,7 @@ router.get('/:id/details/edit', async (req, res, next) => {
     const id = req.params.id;
     let gym = await Gym.findById(id);
     // create an object with all the keys we need
+
     const gymStuff = {
       PullUpBarStation: false,
       HorizontalLadder: false,
@@ -129,10 +135,12 @@ router.get('/:id/details/edit', async (req, res, next) => {
       gym,
       gymStuff
     };
+
     console.log(gym);
     // then loop over the object: "", if the key exsists in the array then that prorety is true
     // if it doesnt exist then its false
     // send this object down with gym for the inputs
+
     res.render('updateGym', gym);
   } catch (error) {
     next(error);
